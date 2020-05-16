@@ -11,5 +11,8 @@
     "url": "https://github.ccs.neu.edu/NEU-CS5610-SU20/VinayJoseph-Book.git"
   },
   "author": "Vinay",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
