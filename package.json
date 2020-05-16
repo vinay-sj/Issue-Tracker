@@ -1,0 +1,15 @@
+{
+  "name": "vinayjoseph-book",
+  "version": "1.0.0",
+  "description": "Work through Pro MERN Stack 2nd Ed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.ccs.neu.edu/NEU-CS5610-SU20/VinayJoseph-Book.git"
+  },
+  "author": "Vinay",
+  "license": "ISC"
+}
