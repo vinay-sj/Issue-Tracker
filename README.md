@@ -1,6 +1,6 @@
 # Pro MERN Stack 2nd Edition book project
 
-This documents my progress through each chapter of Pro MERN Stack (1nd Ed.) by Vasan Subramanian.
+This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.) by Vasan Subramanian.
 
 # Chapter Notes
 
@@ -16,5 +16,5 @@ This documents my progress through each chapter of Pro MERN Stack (1nd Ed.) by V
 * To have all the scripts that require compiling at the same place, we move all the JSX from `index.html` to another file `App.jsx`. All the JSX files are placed in the `public` folder(The folder is to be created in the root directory).
 * We install some Babel tools to transform JSX to plain JavaScript. Now, the transformation takes place in build time.
 * We create a file `.babelrc` to specify the presets that needs to be used. Using the preset `preset-env` we specify the target browsers that we support and Babel automatically applies all the transforms and plugins that are required. Babel polyfill is used to supplement the missing function implementations in older browsers.
-* We add `watch` and `compile` scripts to our `package.json` to automatically recompile when a change takes place in the source files. Similarly, nodemon is used to restart the server on changes.
-* Finally, to start our server we run `npm run watch` and `npm start` on different terminals.
+* We add `watch` and `compile` scripts to the `package.json` to automatically recompile when a change takes place in the source files. Similarly, nodemon is used to restart the server on changes.
+* Finally, to start the server we run `npm run watch` and `npm start` on different terminals.
