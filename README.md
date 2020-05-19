@@ -8,6 +8,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 * In this chapter we lay out the main page of the issue tracker with a list of issues.
 * First, we convert the single line JSX into a single React component instantiated from a React class. We create a React class `HelloWorld` and create an instance of it.
+* Next, we split large components in to smaller logically separated components. We place all these components in the same file for now.
 
 
 ## Chapter 2
