@@ -10,7 +10,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * First, we convert the single line JSX into a single React component instantiated from a React class. We create a React class `HelloWorld` and create an instance of it.
 * Next, we split large components in to smaller logically separated components. We place all these components in the same file for now.
 * To pass different input data from a parent component to a child component we use an attribute when instantiating the component. The attribute's value can be accessed in the child via a variable called `props` which is available via the `this` accessor.
-
+* To pass nested elements they have to be enclosed between the opening and closing tags of the JSX expression. The parent component can access the children element using this.props.children and the parent component can determine where it needs to be displayed.
 
 ## Chapter 2
 
