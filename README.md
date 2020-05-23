@@ -6,11 +6,15 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 ## Chapter 3
 
+![ch03](/readme_images/Chapter3.png)
+
 * In this chapter we lay out the main page of the issue tracker with a list of issues.
 * First, we convert the single line JSX into a single React component instantiated from a React class. We create a React class `HelloWorld` and create an instance of it.
 * Next, we split large components in to smaller logically separated components. We place all these components in the same file for now.
 * To pass different input data from a parent component to a child component we use an attribute when instantiating the component. The attribute's value can be accessed in the child via a variable called `props` which is available via the `this` accessor.
 * To pass nested elements they have to be enclosed between the opening and closing tags of the JSX expression. The parent component can access the children element using this.props.children and the parent component can determine where it needs to be displayed.
+* Next, we replace the hard coded set of `IssueRow` components with a list of issues, fetched from a JavaScript array. We will later fetch from a database. Using `map()` method of `Array` we map each issue object to an `IssueRow` instance.  We need to identify each instance  of `IssueRow` with a `key` so that React can optimize the calculation of the differences when things change.
+* On page 55 in listing 3-6 a single quote before 'New' is missing.
 
 ## Chapter 2
 
