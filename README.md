@@ -4,6 +4,11 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 # Chapter Notes
 
+## Chapter 4
+
+* In this chapter we use React and change how the component looks and what it shows on screen. We will add a button, and append a row to the initial list of issues on click of the button.
+* First we set the initial state in the constructor of the component. This is dont by assigning the variable `this.state` to the set of state variables and their values.
+
 ## Chapter 3
 
 ![ch03](/readme_images/Chapter3.png)
