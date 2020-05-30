@@ -10,6 +10,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * First we set the initial state in the constructor of the component. This is dont by assigning the variable `this.state` to the set of state variables and their values.
 * Using asynchronous calls to `React.Component`'s `this.setState()` method we initialise the state. We use the `lifecycle` method `componentDidMount()` to make sure that `this.setState()` method is called only after the component is rendered.
 * To add a new issue, without changing the complete state we create a copy of the issues array and push the new issue into it. Then we call `this.setState()` with the new array. We don't have to write code to add a new row in the DOM, React calculates the changes to the virtual DOM and inserts the new row.
+* Next, we move the initiation of the creation of new issues to the IssueAdd component. For this we need to move the initialisation of the state in the constructor of IssueTable and the methods componentDidMount(), loadData(), and createIssue() IssueList component. This is because horizontal communication is hard and information can be passed from parents to children only. 
 
 ## Chapter 3
 
