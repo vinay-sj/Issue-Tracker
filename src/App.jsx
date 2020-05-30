@@ -11,6 +11,12 @@ const initialIssues = [
     },
 ];
 
+const sampleIssue = {
+    status: 'New', 
+    owner: 'Pieta',
+    title: 'Completion data should be optional',
+};
+
 class IssueFilter extends React.Component {
     render(){
         return (
@@ -38,7 +44,10 @@ class IssueRow extends React.Component {
 class IssueTable extends React.Component {
     constructor(){
         super();
-        this.state = {issues: []};
+        this.state = {issues: [] };
+        setTimeout(()=>{
+            this.createIssue(sampleIssue);
+        },2000);
     }
     componentDidMount(){
         this.loadData();
@@ -70,6 +79,13 @@ class IssueTable extends React.Component {
                 </tbody>
             </table>
         );
+    }
+    createIssue(issue){
+        issue.id = this.state.issues.length + 1;
+        issue.created = new Date();
+        const newIssueList = this.state.issues.slice();
+        newIssueList.push(issue);
+        this.setState({ issues: newIssueList }); 
     }
 }
 class IssueAdd extends React.Component {
