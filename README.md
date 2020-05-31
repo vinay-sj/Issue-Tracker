@@ -6,12 +6,17 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 ## Chapter 4
 
+![ch04](/readme_images/Chapter4.png)
+
 * In this chapter we use React and change how the component looks and what it shows on screen. We will add a button, and append a row to the initial list of issues on click of the button.
 * First we set the initial state in the constructor of the component. This is dont by assigning the variable `this.state` to the set of state variables and their values.
 * Using asynchronous calls to `React.Component`'s `this.setState()` method we initialise the state. We use the `lifecycle` method `componentDidMount()` to make sure that `this.setState()` method is called only after the component is rendered.
 * To add a new issue, without changing the complete state we create a copy of the issues array and push the new issue into it. Then we call `this.setState()` with the new array. We don't have to write code to add a new row in the DOM, React calculates the changes to the virtual DOM and inserts the new row.
 * Next, we move the initiation of the creation of new issues to the `IssueAdd` component. For this we need to move the initialisation of the state in the constructor of `IssueTable` and the methods `componentDidMount()`, `loadData()`, and `createIssue()` to the `IssueList` component. This is because horizontal communication is hard and information can be passed from parents to children only. 
-* We add a button that will trigger the addition of issues from the text input fields. We need to supply the properties `onClick` and `onSubmit` to the elements to handle `onclick` and `onsubmit` events. To get the values from the text input fields we use the form handle via `documents.forms.issueAdd`.
+* We create a form with text field inputs and a button that will trigger the addition of issues. We need to supply the properties `onClick` and `onSubmit` to the elements to handle `onclick` and `onsubmit` events. To get the values from the text input fields we use the form handle via `documents.forms.issueAdd`.
+* Finally, we replace all components which have no state and only takes in props and renders it, with functions with the same name.  
+* Props are immutable, whereas state is not.
+* Parents communicate to children via props, when state changes, the props automatically change. Children communicate to parents via callbacks. Siblings and cousins can’t communicate with each other, we have to lift the state up.
 
 ## Chapter 3
 
