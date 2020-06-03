@@ -4,6 +4,40 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 # Chapter Notes
 
+## Chapter 5
+
+* A router in Express takes a client request, matches it against any routes that are present, and executes the handler function that is associated with that route. The route specification consists of an HTTP method, path specification and the route handler.
+* The difference between a middleware function and route is that a middleware function deals with any request matching the path specification, whereas a route matches a request with a specific HTTP method.
+* When a request is received, the first thing that Express does is match the request to one of the routes. The request method is matched against the route’s method.
+* Route parameters are named segments in the path specification that match a part of the URL.
+* Multiple routes can be set up to match different URLs and patterns, but the first match will be used. After matching the handler function is called.
+* Request object's properties and methods can be used to inspect any aspect of the request and the response object can be used to construct and send a response.
+* Middleware functions have access to the request object, the response object, and the next middleware function in the application’s request-response cycle.
+* HTTP method and operation mapping are well mapped and specified in REST but, it doesn't lay down rules for the following:
+    * Filtering, sorting, and paginating a list of objects.
+    * Specifying which fields to return in a READ operation
+    * If there are embedded objects, specifying which of those to expand in a READ operation.
+    * Specifying which fields to modify in a PATCH operation.
+    * Representation of objects. We are free to use JSON, XML, or any other representation.
+* GraphQL has the following salient geatures:
+    * The properties of an object that need to be returned must be specified and its invalid to request nothing.
+    * It's graph based i.e. relationships between objects are naturally handled in the GraphQL API.
+    * It has a single endpoint. The name of the resource being accessed is supplied as part of the query.
+    * It's strongly typed. All fields and arguments have a type.
+* Packages like `graphql-tools` and `apollo-server` build on top of GraphQL.js(the reference implementation of GraphQL) to add advanced features.
+* In GraphQL schema language we have to define each type using the type keyword followed by the name of the type, followed by its specification within curly brackets.
+* GraphQL schema has two special types that are entry points into the type system, called `Query` and `Mutation`. Query fields are expected to return existing state, whereas mutation fields are expected to change something in the application’s data.
+* Query fields are executed in parallel whereas mutation fields are executed in series.
+* In the Schema Language we can indicate that the value is mandatory by adding an exclaimation character(!) after the type.
+* Resolvers resolve a query to a field with real values. Its  specified as nested objects that follow the structure of schema and at every level the field is resolved using a function of the same name as the field.
+* To initialize the GraphQL server we have to construct an `ApolloServer` object. The constructor takes in an object with at least two properties-`typeDefs` and `resolvers`-and returns a GraphQL server object.
+* In the GraphQL Playground the query language used is not JSON, it follows the same hierarchical structure of the schema. The output is regular JSON.
+  
+
+### Errors & Issues
+
+* The setup of `apollo-server` was showing an error `Error: Cannot find module 'graphql/validation/rules/PossibleTypeExtensions'` with the command in page 97. After going through the posts on piazza, I installed the version to 2.3+ using the command `npm install graphql@0 apollo-server-express@2.3` which fixed the issue.
+
 ## Chapter 4
 
 ![ch04](/readme_images/Chapter4.png)
