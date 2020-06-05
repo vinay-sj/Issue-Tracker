@@ -37,6 +37,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * To use the APIs we need to make asynchronous API calls(AJAX calls) by using libraries like jQuery. Modern browsers support Ajax calls natively via the Fetch API.
 * To fetch data list of issues we create a GraphQL query in the `loadData()` method and send within a JSON, as part of the body to the fetch request. 
 * If we are using `awaits` within the function, we need to add the keyword `async` for the function definition.
+* JSON does not have a `Date` type. We use a string format for transferring `Date` object to JSON.
+* The method `serialize()` will convert date value to string. We need to call `toISOString()` method to convert date to the ISO 8601 string format.
 
 ### Errors & Issues
 
