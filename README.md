@@ -34,8 +34,9 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * In the GraphQL Playground the query language used is not JSON, it follows the same hierarchical structure of the schema. The output is regular JSON.
 * We use `List API` to fetch the list of issues. We have to define a custom type `Issue` containing all the fields of the issue.
 * In GraphQL to specify a list of another type we enclose it within square brackets. We could use `[Issue]` as the type for the field.
-*  
-* 
+* To use the APIs we need to make asynchronous API calls(AJAX calls) by using libraries like jQuery. Modern browsers support Ajax calls natively via the Fetch API.
+* To fetch data list of issues we create a GraphQL query in the `loadData()` method and send within a JSON, as part of the body to the fetch request. 
+* If we are using `awaits` within the function, we need to add the keyword `async` for the function definition.
 
 ### Errors & Issues
 

@@ -15,7 +15,7 @@ const issuesDB = [
         created: new Date('2018-08-16'), due: new Date('2018-08-30'),
         title: 'Missing bottom border on panel',
     },
-]
+];
 
 const resolvers= {
     Query: {
