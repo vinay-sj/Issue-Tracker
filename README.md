@@ -32,7 +32,10 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * Resolvers resolve a query to a field with real values. Its  specified as nested objects that follow the structure of schema and at every level the field is resolved using a function of the same name as the field.
 * To initialize the GraphQL server we have to construct an `ApolloServer` object. The constructor takes in an object with at least two properties-`typeDefs` and `resolvers`-and returns a GraphQL server object.
 * In the GraphQL Playground the query language used is not JSON, it follows the same hierarchical structure of the schema. The output is regular JSON.
-  
+* We use `List API` to fetch the list of issues. We have to define a custom type `Issue` containing all the fields of the issue.
+* In GraphQL to specify a list of another type we enclose it within square brackets. We could use `[Issue]` as the type for the field.
+*  
+* 
 
 ### Errors & Issues
 
