@@ -44,6 +44,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * The method `parseValue` is called if the input is supplied as a variable. The date is constructed out of the variable and returned.
 * GraphQL can factor dynamic values(`variables`) from the query and pass them as a separate dictionary.
 * To use variables we need to specify a name for the operation right after the `query` or `mutation` field and declare a variable as argument to the operation name. The variable name can then replace the value. The variable name should start with a `$` character.
+* In GraphQL we can restrict the input values using an `enums`. Default values can be provided by using the `=` symbol.
 
 ### Errors & Issues
 
