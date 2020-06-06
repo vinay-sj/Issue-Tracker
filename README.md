@@ -40,7 +40,9 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * JSON does not have a `Date` type. We use a string format for transferring `Date` object to JSON.
 * The method `serialize()` will convert date value to string. We need to call `toISOString()` method to convert date to the ISO 8601 string format.
 * Reviver function is called for parsing all values, and the JSON parser lets it modify the default parser's functionality.
-
+* The method `parseLiteral` is called when the field is specified in place in the query. The argument `ast` contains a `kind` and `value` property that indicates the type of taken.
+* The method `parseValue` is called if the input is supplied as a variable. The date is constructed out of the variable and returned.
+ 
 ### Errors & Issues
 
 * The setup of `apollo-server` was showing an error `Error: Cannot find module 'graphql/validation/rules/PossibleTypeExtensions'` with the command in page 97. After going through the posts on piazza, I installed the version to 2.3+ using the command `npm install graphql@0 apollo-server-express@2.3` which fixed the issue.
