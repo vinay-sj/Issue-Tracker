@@ -39,6 +39,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * If we are using `awaits` within the function, we need to add the keyword `async` for the function definition.
 * JSON does not have a `Date` type. We use a string format for transferring `Date` object to JSON.
 * The method `serialize()` will convert date value to string. We need to call `toISOString()` method to convert date to the ISO 8601 string format.
+* Reviver function is called for parsing all values, and the JSON parser lets it modify the default parser's functionality.
 
 ### Errors & Issues
 
