@@ -6,6 +6,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 ## Chapter 5
 
+![ch05](/readme_images/Chapter5.png)
+
 * A router in Express takes a client request, matches it against any routes that are present, and executes the handler function that is associated with that route. The route specification consists of an HTTP method, path specification and the route handler.
 * The difference between a middleware function and route is that a middleware function deals with any request matching the path specification, whereas a route matches a request with a specific HTTP method.
 * When a request is received, the first thing that Express does is match the request to one of the routes. The request method is matched against the route’s method.
@@ -45,10 +47,13 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * GraphQL can factor dynamic values(`variables`) from the query and pass them as a separate dictionary.
 * To use variables we need to specify a name for the operation right after the `query` or `mutation` field and declare a variable as argument to the operation name. The variable name can then replace the value. The variable name should start with a `$` character.
 * In GraphQL we can restrict the input values using an `enums`. Default values can be provided by using the `=` symbol.
+* To print out the error on the console we can use the configuration option `formatError` available in the Apollo Server. Using this we can make changes to the way error is sent back.
 
 ### Errors & Issues
 
 * The setup of `apollo-server` was showing an error `Error: Cannot find module 'graphql/validation/rules/PossibleTypeExtensions'` with the command in page 97. After going through the posts on piazza, I installed the version to 2.3+ using the command `npm install graphql@0 apollo-server-express@2.3` which fixed the issue.
+* I made a lot of typos in this chapter which took some time to debug.
+* The function `issueValidate(issue)` was wrongly named as `validateIssue(_, { issue })` in page 125. 
 
 ## Chapter 4
 
