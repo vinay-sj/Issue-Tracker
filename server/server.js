@@ -26,12 +26,11 @@ const GraphQLDate = new GraphQLScalarType({
         return value.toISOString();
     },
     parseValue(value) {
-        // return new Date(value);
         const dateValue = new Date(value);
         return isNaN(dateValue) ? undefined : dateValue;
     },
     parseLiteral(ast) {
-        // return (ast.kind == Kind.STRING) ? new Date(ast.value) : undefined;
+
         if (ast.kind == Kind.STRING) {
             const value = new Date(ast.value);
             return isNaN(value) ? undefined : value;
@@ -71,11 +70,11 @@ function issueValidate(issue) {
         throw new UserInputError('Invalid input(s)', {errors});
     }
 }
+
 function issueAdd(_, {issue}) {
     issueValidate(issue);
     issue.created = new Date();
     issue.id = issuesDB.length + 1;
-    // if (issue.status == undefined) issue.status = 'New';
     issuesDB.push(issue);
     return issue;
 }
@@ -83,9 +82,9 @@ function issueAdd(_, {issue}) {
 const server = new ApolloServer({
     typeDefs: fs.readFileSync('./server/schema.graphql', 'utf-8'),
     resolvers,
-    formatError:error=>{
-      console.log(error);
-      return error;
+    formatError: error => {
+        console.log(error);
+        return error;
     },
 });
 
