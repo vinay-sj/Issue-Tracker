@@ -22,6 +22,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * `updateOne()` and `updateMany()` are the two methods available for updating a document. It takes 2 arguments. The first argument is filter, and the second is an update specification if only some fields need to be changed.
 * The method `replaceOne()` can be used to replace the complete document.
 * `aggregate()` performs the function of GROUP BY clause. To perform aggregate, the `$group` stage needs to be used. To group the aggregate by a field, we specify the name of the field prefixed by a `$` as the value of `_id`.
+* To connect with the MongoDB server we import the `MongoClient` object, then create a new client object and finally call the connect method on it.
+* The `connect()` method is an asynchronous method and needs a callback. Within the callback, a connection to the database can be obtained by calling the `db` method of the `client` object. 
 
 ## Chapter 5
 
