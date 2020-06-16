@@ -24,6 +24,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * `aggregate()` performs the function of GROUP BY clause. To perform aggregate, the `$group` stage needs to be used. To group the aggregate by a field, we specify the name of the field prefixed by a `$` as the value of `_id`.
 * To connect with the MongoDB server we import the `MongoClient` object, then create a new client object and finally call the connect method on it.
 * The `connect()` method is an asynchronous method and needs a callback. Within the callback, a connection to the database can be obtained by calling the `db` method of the `client` object. 
+* The most recommended and convenient way to use the driver is using async/await paradigm. We use `await` before the method call to simulate the synchronous call by waiting for the call to complete and return the results.
 
 ## Chapter 5
 
