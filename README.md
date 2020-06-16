@@ -4,6 +4,25 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 # Chapter Notes
 
+## Chapter 6
+
+* MongoDB is a document database, an entire object is written as a `document`. A `document` is a data structure composed of field and value pairs.
+* MongoDB supports Boolean, numbers, strings, dates, timestamps, regular  expressions, and binary data.
+* `Collection` is a set of documents. 
+* In MongoDB it's mandatory to have a unique primary key. It has a reserved field name `_id`. If we don't provide a value while creating the document, the primary key is auto-generated. It has a special data type called `ObjectId`. When we provide a id it's stored as an integer, but when it is auto-generated the data type of id is `ObjectID`
+* Database is a logical grouping of collections.
+* `$lookup` is an aggregation pipeline equivalent to `join` in SQL databases.
+* In MongoDB query language the main read and write operation are the CRUD methods.
+* I downloaded the  MongoDB Enterprise Edition for Windows. To use MongoDB I had to go to `C:\Program Files\MongoDB\Server\4.2\bin\` directory and run `mongo.exe` or run `C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe` in cmd.
+* Then I created a directory `\data\db` for the database in `C` drive.
+* Mongo shell has an auto-complete feature that can be availed by pressing tab twice after typing `db.employees.`.
+* `find()` method takes in 2 arguments. First is the filter and second is the projection.
+* `createIndex()` take in 2 arguments. The first is the filter, and the second is an object that contains various attributes of the index(like unique).
+* Projection specifies which fields to include or exclude in the result. It's format is an object with one or more fields as the key and value as 0 or 1. It can start with nothing and include fields using 1, or start with everything and exclude fields using 0s.
+* `updateOne()` and `updateMany()` are the two methods available for updating a document. It takes 2 arguments. The first argument is filter, and the second is an update specification if only some fields need to be changed.
+* The method `replaceOne()` can be used to replace the complete document.
+* `aggregate()` performs the function of GROUP BY clause. To perform aggregate, the `$group` stage needs to be used. To group the aggregate by a field, we specify the name of the field prefixed by a `$` as the value of `_id`.
+
 ## Chapter 5
 
 ![ch05](/readme_images/Chapter5.png)
