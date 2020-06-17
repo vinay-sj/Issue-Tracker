@@ -25,6 +25,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * To connect with the MongoDB server we import the `MongoClient` object, then create a new client object and finally call the connect method on it.
 * The `connect()` method is an asynchronous method and needs a callback. Within the callback, a connection to the database can be obtained by calling the `db` method of the `client` object. 
 * The most recommended and convenient way to use the driver is using async/await paradigm. We use `await` before the method call to simulate the synchronous call by waiting for the call to complete and return the results.
+* Mongo shell is built on top of a JavaScript engine.
+
 
 ## Chapter 5
 
