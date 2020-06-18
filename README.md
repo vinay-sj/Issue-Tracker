@@ -6,6 +6,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 ## Chapter 6
 
+![ch06](/readme_images/Chapter6.png)
+
 * MongoDB is a document database, an entire object is written as a `document`. A `document` is a data structure composed of field and value pairs.
 * MongoDB supports Boolean, numbers, strings, dates, timestamps, regular  expressions, and binary data.
 * `Collection` is a set of documents. 
