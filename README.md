@@ -26,7 +26,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * The `connect()` method is an asynchronous method and needs a callback. Within the callback, a connection to the database can be obtained by calling the `db` method of the `client` object. 
 * The most recommended and convenient way to use the driver is using async/await paradigm. We use `await` before the method call to simulate the synchronous call by waiting for the call to complete and return the results.
 * Mongo shell is built on top of a JavaScript engine.
-
+* To perform the read operation, we need to connect to the database. We maintain the connection so that it can be reused for many operations. Next, we need to setup the server to connect to the database and then start the `Express` application.  
 
 ## Chapter 5
 
