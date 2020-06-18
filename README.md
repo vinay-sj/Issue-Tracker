@@ -27,6 +27,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * The most recommended and convenient way to use the driver is using async/await paradigm. We use `await` before the method call to simulate the synchronous call by waiting for the call to complete and return the results.
 * Mongo shell is built on top of a JavaScript engine.
 * To perform the read operation, we need to connect to the database. We maintain the connection so that it can be reused for many operations. Next, we need to setup the server to connect to the database and then start the `Express` application.  
+* To perform the write operation, we need to first generate a sequence of numbers that cannot give us duplicates. Then, insert the issue object in the database.
 
 ## Chapter 5
 
