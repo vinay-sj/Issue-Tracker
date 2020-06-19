@@ -16,6 +16,7 @@
   "homepage": "https://github.ccs.neu.edu/NEU-CS5610-SU20/VinayJoseph-Book",
   "dependencies": {
     "apollo-server-express": "^2.3.3",
+    "dotenv": "^6.2.0",
     "express": "^4.17.1",
     "graphql": "^14.2.1",
     "mongodb": "^3.5.9",
