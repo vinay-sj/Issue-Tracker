@@ -4,6 +4,18 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 # Chapter Notes
 
+## Chapter 7
+
+* In this chapter we organize our code, and make it more flexible so that it can cater to a larger application with lot of traffic.
+* UI Server
+** Our Express server serves static content as well as API calls.
+** All the requests land on the same physical server within the Express application and are routed into two different middleware based on the request.
+** As the application grows, the API will have other consumers and the two parts will have different scaling requirements. Also, it will be hard to diagnose and debug performance issues. So the better option is to separate it into two servers.
+
+ 
+### Errors and Issues
+* `npm install` was showing an error: `apollo-graphql@0.4.5 requires a peer of graphql@^14.2.1 but none is installed. You must install peer dependencies yourself`. I had to specify a graphql version to `14.2.1` in api's package.json to fix it.
+
 ## Chapter 6
 
 ![ch06](/readme_images/Chapter6.png)
