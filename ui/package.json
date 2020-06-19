@@ -1,13 +1,12 @@
 {
-  "name": "vinayjoseph-book",
+  "name": "pro-mern-stack-2-ui",
   "version": "1.0.0",
-  "description": "Work through Pro MERN Stack 2nd Ed",
+  "description": "Pro MERN Stack (2nd Edition) - UI",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -w api -e js,graphql api/server.js",
-    "compile": "babel ui/src --out-dir public",
-    "watch": "babel ui/src --out-dir public --watch --verbose",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon -w uiserver.js uiserver.js",
+    "compile": "babel src --out-dir public",
+    "watch": "babel src --out-dir public --watch --verbose"
   },
   "repository": {
     "type": "git",
@@ -15,11 +14,9 @@
   },
   "author": "Vinay",
   "license": "ISC",
+  "homepage": "https://github.ccs.neu.edu/NEU-CS5610-SU20/VinayJoseph-Book",
   "dependencies": {
-    "apollo-server-express": "^2.3.3",
     "express": "^4.17.1",
-    "graphql": "^14.2.1",
-    "mongodb": "^3.5.9",
     "nodemon": "^1.19.4"
   },
   "devDependencies": {
