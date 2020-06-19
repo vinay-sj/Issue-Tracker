@@ -91,7 +91,7 @@ async function connectToDb() {
 }
 
 const server = new ApolloServer({
-    typeDefs: fs.readFileSync('./server/schema.graphql', 'utf-8'),
+    typeDefs: fs.readFileSync('./api/schema.graphql', 'utf-8'),
     resolvers,
     formatError: error => {
         console.log(error);

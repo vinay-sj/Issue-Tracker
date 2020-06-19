@@ -1,0 +1,31 @@
+{
+  "name": "vinayjoseph-book",
+  "version": "1.0.0",
+  "description": "Work through Pro MERN Stack 2nd Ed",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -w api -e js,graphql api/server.js",
+    "compile": "babel ui/src --out-dir public",
+    "watch": "babel ui/src --out-dir public --watch --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.ccs.neu.edu/NEU-CS5610-SU20/VinayJoseph-Book.git"
+  },
+  "author": "Vinay",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.3.3",
+    "express": "^4.17.1",
+    "graphql": "^0.13.2",
+    "mongodb": "^3.5.9",
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4"
+  }
+}
