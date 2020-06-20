@@ -14,6 +14,9 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * To keep the variables for ports flexible we use `dotenv` to supply environment variables stored in configuration files. We can use any environment variable using process.env properties. The values of the environament variables should be declared in a `.env` file in the root during development.
 * `cross-origin resource sharing` or CORS is the mechanism of determining if the request can be allowed.
 * In our application we don't disable unauthenticated requests across origins. We can change the UI to make even API requests to the UI server, and then using proxy that request will be routed to the API server.
+* ESLint is a flexible linter that lets us define the rules that our code should adhere to. The rules can be defined in the `.eslintrc` file, which is a JSON specification. 
+* Rule sets can also be inherited using the `extends` property.
+* The ESLint can be run using the command `npx eslint` 
 
 ### Errors and Issues
 
