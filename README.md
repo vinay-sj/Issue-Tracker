@@ -6,11 +6,15 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 ## Chapter 7
 
+![ch071](/readme_images/Chapter7_1.png)
+
+![ch072](/readme_images/Chapter7_2.png)
+
 * In this chapter we organize our code, and make it more flexible so that it can cater to a larger application with lot of traffic.
 * UI Server
-** Our Express server serves static content as well as API calls.
-** All the requests land on the same physical server within the Express application and are routed into two different middleware based on the request.
-** As the application grows, the API will have other consumers and the two parts will have different scaling requirements. Also, it will be hard to diagnose and debug performance issues. So the better option is to separate it into two servers.
+    * Our Express server serves static content as well as API calls.
+    * All the requests land on the same physical server within the Express application and are routed into two different middleware based on the request.
+    * As the application grows, the API will have other consumers and the two parts will have different scaling requirements. Also, it will be hard to diagnose and debug performance issues. So the better option is to separate it into two servers.
 * To keep the variables for ports flexible we use `dotenv` to supply environment variables stored in configuration files. We can use any environment variable using process.env properties. The values of the environament variables should be declared in a `.env` file in the root during development.
 * `cross-origin resource sharing` or CORS is the mechanism of determining if the request can be allowed.
 * In our application we don't disable unauthenticated requests across origins. We can change the UI to make even API requests to the UI server, and then using proxy that request will be routed to the API server.
@@ -20,6 +24,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * The ESLint can be run using the command `npx eslint`.
 * In the UI, we don't need to run ESLint on all the sub-directories. The compiled file in the `public` directory will cause errors because it is not source code. We can ignore this file by adding `--ignore-pattern public` to the command line script or add them as lines to a text file called `.eslintignore`.
 * In the `src`folder in the ui we extend the complete `airbnb` so that we can configure the React code. To check React code with ESLint, we run it using the command `npx eslint . --ext js,jsx --ignore-pattern public`. 
+* We can supply specification in the form of `propTypes` to validate the properties being passed from one component to another.  
+
 ### Errors and Issues
 
 * `npm install` was showing an error: `apollo-graphql@0.4.5 requires a peer of graphql@^14.2.1 but none is installed. You must install peer dependencies yourself`. I had to specify a graphql version to `14.2.1` in api's package.json to fix it.

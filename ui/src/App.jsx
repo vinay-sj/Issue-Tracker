@@ -2,6 +2,7 @@
 /* globals React ReactDOM */
 /* eslint "react/jsx-no-undef": "off" */
 /* eslint "no-alert": "off" */
+/* globals React ReactDOM PropTypes */
 
 const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
 
@@ -161,6 +162,10 @@ class IssueList extends React.Component {
     );
   }
 }
+
+IssueAdd.propTypes = {
+  createIssue: PropTypes.func.isRequired,
+};
 
 const element = <IssueList />;
 ReactDOM.render(element, document.getElementById('content'));

@@ -33,6 +33,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 /* eslint "react/jsx-no-undef": "off" */
 
 /* eslint "no-alert": "off" */
+
+/* globals React ReactDOM PropTypes */
 var dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
 
 function jsonDateReviver(key, value) {
@@ -312,5 +314,8 @@ var IssueList = /*#__PURE__*/function (_React$Component3) {
   return IssueList;
 }(React.Component);
 
+IssueAdd.propTypes = {
+  createIssue: PropTypes.func.isRequired
+};
 var element = /*#__PURE__*/React.createElement(IssueList, null);
 ReactDOM.render(element, document.getElementById('content'));
