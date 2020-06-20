@@ -19,7 +19,7 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * In the api we just need to install the `airbnb-base` package, but in the UI we require the complete Airbnb configuration including the React plugin.
 * The ESLint can be run using the command `npx eslint`.
 * In the UI, we don't need to run ESLint on all the sub-directories. The compiled file in the `public` directory will cause errors because it is not source code. We can ignore this file by adding `--ignore-pattern public` to the command line script or add them as lines to a text file called `.eslintignore`.
-
+* In the `src`folder in the ui we extend the complete `airbnb` so that we can configure the React code. To check React code with ESLint, we run it using the command `npx eslint . --ext js,jsx --ignore-pattern public`. 
 ### Errors and Issues
 
 * `npm install` was showing an error: `apollo-graphql@0.4.5 requires a peer of graphql@^14.2.1 but none is installed. You must install peer dependencies yourself`. I had to specify a graphql version to `14.2.1` in api's package.json to fix it.
