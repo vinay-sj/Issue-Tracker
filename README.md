@@ -16,12 +16,15 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * In our application we don't disable unauthenticated requests across origins. We can change the UI to make even API requests to the UI server, and then using proxy that request will be routed to the API server.
 * ESLint is a flexible linter that lets us define the rules that our code should adhere to. The rules can be defined in the `.eslintrc` file, which is a JSON specification. 
 * Rule sets can also be inherited using the `extends` property.
-* The ESLint can be run using the command `npx eslint` 
+* In the api we just need to install the `airbnb-base` package, but in the UI we require the complete Airbnb configuration including the React plugin.
+* The ESLint can be run using the command `npx eslint`.
+* In the UI, we don't need to run ESLint on all the sub-directories. The compiled file in the `public` directory will cause errors because it is not source code. We can ignore this file by adding `--ignore-pattern public` to the command line script or add them as lines to a text file called `.eslintignore`.
 
 ### Errors and Issues
 
 * `npm install` was showing an error: `apollo-graphql@0.4.5 requires a peer of graphql@^14.2.1 but none is installed. You must install peer dependencies yourself`. I had to specify a graphql version to `14.2.1` in api's package.json to fix it.
 * I made a mistake of naming the `.env` file as sample.env. The values that I had defined in it were not accessible in the code. Renaming it to `.env` fixed the issue.
+* While using ESLint I got an error `Expected linebreaks to be 'LF' but found 'CRLF'  linebreak-style`. This was an error that was coming because I was using Windows. To fix this I added a rule(` "linebreak-style": ["error","windows"]`) in the `.eslintrc` file.
 
 ## Chapter 6
 
