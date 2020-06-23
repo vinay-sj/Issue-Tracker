@@ -34,4 +34,4 @@ function installHandler(app) {
   server.applyMiddleware({ app, path: '/graphql', cors: enableCors });
 }
 
-module.exports = { installHandler }
+module.exports = { installHandler };
