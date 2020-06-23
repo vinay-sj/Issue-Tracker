@@ -4,6 +4,13 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 # Chapter Notes
 
+## Chapter 8
+
+* Using Webpack we can split the front-end code into component based files, inject code onto the browser incrementally and refresh the browser automatically on front-end changes.
+* The `require()` element is a function that can be used to import symbols from another module. The parameter passed to require() is the ID of the module.
+* For packages installed using npm, this is the same as the name of the package and the same as the sub-directory inside the `node_modules` directory where the package’s files are installed. For modules within the same application, the ID is the path of the file that needs to be imported.
+* Whatever is exported by other.js will be available in the other variable. This is controlled by `exports`.
+
 ## Chapter 7
 
 ![ch071](/readme_images/Chapter7_1.png)

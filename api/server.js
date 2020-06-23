@@ -2,43 +2,16 @@ const fs = require('fs');
 require('dotenv').config();
 const express = require('express');
 const { ApolloServer, UserInputError } = require('apollo-server-express');
-const { GraphQLScalarType } = require('graphql');
-const { Kind } = require('graphql/language');
+const GraphQLDate = require('./graphql_date.js');
 const { MongoClient } = require('mongodb');
-
+const about= require('./about.js');
 const url = process.env.DB_URL || 'mongodb://localhost/issuetracker';
 const port = process.env.API_SERVER_PORT || 3000;
 let db;
 
-let aboutMessage = 'Issue Tracker API v1.0';
-
-const GraphQLDate = new GraphQLScalarType({
-  name: 'GraphQLDate',
-  description: 'A Date() type in GraphQL as a scalar',
-  serialize(value) {
-    return value.toISOString();
-  },
-  parseValue(value) {
-    const dateValue = new Date(value);
-    return Number.isNaN(dateValue.getTime()) ? undefined : dateValue;
-  },
-  parseLiteral(ast) {
-    if (ast.kind === Kind.STRING) {
-      const value = new Date(ast.value);
-      return Number.isNaN(value.getTime()) ? undefined : value;
-    }
-    return undefined;
-  },
-});
-
 async function issueList() {
   const issues = await db.collection('issues').find({}).toArray();
   return issues;
-}
-
-function setAboutMessage(_, { message }) {
-  aboutMessage = message;
-  return aboutMessage;
 }
 
 function issueValidate(issue) {
@@ -75,11 +48,11 @@ async function issueAdd(_, { issue }) {
 
 const resolvers = {
   Query: {
-    about: () => aboutMessage,
+    about: about.getMessage,
     issueList,
   },
   Mutation: {
-    setAboutMessage,
+    setAboutMessage: about.setMessage,
     issueAdd,
   },
   GraphQLDate,
