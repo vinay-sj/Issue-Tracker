@@ -3,7 +3,7 @@
 /* eslint "react/jsx-no-undef": "off" */
 /* globals React ReactDOM PropTypes */
 
-import graphQLFetch from "./graphQLFetch.js";
+import graphQLFetch from './graphQLFetch.js';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class IssueFilter extends React.Component {
@@ -29,22 +29,22 @@ function IssueRow({ issue }) {
 }
 
 function IssueTable({ issues }) {
-  const issueRows = issues.map(issue => <IssueRow key={issue.id} issue={issue}/>);
+  const issueRows = issues.map(issue => <IssueRow key={issue.id} issue={issue} />);
   return (
     <table className="bordered-table">
       <thead>
-      <tr>
-        <th>ID</th>
-        <th>Status</th>
-        <th>Owner</th>
-        <th>Created</th>
-        <th>Effort</th>
-        <th>Due Date</th>
-        <th>Title</th>
-      </tr>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Owner</th>
+          <th>Created</th>
+          <th>Effort</th>
+          <th>Due Date</th>
+          <th>Title</th>
+        </tr>
       </thead>
       <tbody>
-      {issueRows}
+        {issueRows}
       </tbody>
     </table>
   );
@@ -73,8 +73,8 @@ class IssueAdd extends React.Component {
   render() {
     return (
       <form name="issueAdd" onSubmit={this.handleSubmit}>
-        <input type="text" name="owner" placeholder="Owner"/>
-        <input type="text" name="title" placeholder="Title"/>
+        <input type="text" name="owner" placeholder="Owner" />
+        <input type="text" name="title" placeholder="Title" />
         <button type="submit">Add</button>
       </form>
     );
@@ -122,11 +122,11 @@ class IssueList extends React.Component {
     return (
       <React.Fragment>
         <h1>Issue Tracker</h1>
-        <IssueFilter/>
-        <hr/>
-        <IssueTable issues={issues}/>
-        <hr/>
-        <IssueAdd createIssue={this.createIssue}/>
+        <IssueFilter />
+        <hr />
+        <IssueTable issues={issues} />
+        <hr />
+        <IssueAdd createIssue={this.createIssue} />
       </React.Fragment>
     );
   }
@@ -136,5 +136,5 @@ IssueAdd.propTypes = {
   createIssue: PropTypes.func.isRequired,
 };
 
-const element = <IssueList/>;
+const element = <IssueList />;
 ReactDOM.render(element, document.getElementById('content'));
