@@ -10,6 +10,9 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * The `require()` element is a function that can be used to import symbols from another module. The parameter passed to require() is the ID of the module.
 * For packages installed using npm, this is the same as the name of the package and the same as the sub-directory inside the `node_modules` directory where the package’s files are installed. For modules within the same application, the ID is the path of the file that needs to be imported.
 * Whatever is exported by other.js will be available in the other variable. This is controlled by `exports`.
+* We separate the different functionalities from `server.js` and them using `require` import them in `server.js`.
+* Using, Webpack dependencies can be defined using statements. The tool then automatically determines the application's own dependent modules and third party library dependencies. It has a single pipeline to transform, bundle, and watch for changes and generate new bundles as fast as possible.
+* We will modularize the client-side code using Webpack.
 
 ## Chapter 7
 
