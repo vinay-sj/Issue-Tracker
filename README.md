@@ -13,7 +13,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * We separate the different functionalities from `server.js` and them using `require` import them in `server.js`.
 * Using, Webpack dependencies can be defined using statements. The tool then automatically determines the application's own dependent modules and third party library dependencies. It has a single pipeline to transform, bundle, and watch for changes and generate new bundles as fast as possible.
 * We will modularize the client-side code using Webpack.
-
+* In the front-end we use `import` statement instead of `require`.
+ 
 ## Chapter 7
 
 ![ch071](/readme_images/Chapter7_1.png)

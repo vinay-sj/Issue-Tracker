@@ -1,15 +1,9 @@
 /* eslint "react/react-in-jsx-scope": "off" */
 /* globals React ReactDOM */
 /* eslint "react/jsx-no-undef": "off" */
-/* eslint "no-alert": "off" */
 /* globals React ReactDOM PropTypes */
 
-const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
-
-function jsonDateReviver(key, value) {
-  if (dateRegex.test(value)) return new Date(value);
-  return value;
-}
+import graphQLFetch from "./graphQLFetch.js";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class IssueFilter extends React.Component {
@@ -35,22 +29,22 @@ function IssueRow({ issue }) {
 }
 
 function IssueTable({ issues }) {
-  const issueRows = issues.map(issue => <IssueRow key={issue.id} issue={issue} />);
+  const issueRows = issues.map(issue => <IssueRow key={issue.id} issue={issue}/>);
   return (
     <table className="bordered-table">
       <thead>
-        <tr>
-          <th>ID</th>
-          <th>Status</th>
-          <th>Owner</th>
-          <th>Created</th>
-          <th>Effort</th>
-          <th>Due Date</th>
-          <th>Title</th>
-        </tr>
+      <tr>
+        <th>ID</th>
+        <th>Status</th>
+        <th>Owner</th>
+        <th>Created</th>
+        <th>Effort</th>
+        <th>Due Date</th>
+        <th>Title</th>
+      </tr>
       </thead>
       <tbody>
-        {issueRows}
+      {issueRows}
       </tbody>
     </table>
   );
@@ -79,36 +73,11 @@ class IssueAdd extends React.Component {
   render() {
     return (
       <form name="issueAdd" onSubmit={this.handleSubmit}>
-        <input type="text" name="owner" placeholder="Owner" />
-        <input type="text" name="title" placeholder="Title" />
+        <input type="text" name="owner" placeholder="Owner"/>
+        <input type="text" name="title" placeholder="Title"/>
         <button type="submit">Add</button>
       </form>
     );
-  }
-}
-
-async function graphQLFetch(query, variables = {}) {
-  try {
-    const response = await fetch(window.ENV.UI_API_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query, variables }),
-    });
-    const body = await response.text();
-    const result = JSON.parse(body, jsonDateReviver);
-    if (result.errors) {
-      const error = result.errors[0];
-      if (error.extensions.code === 'BAD_USER_INPUT') {
-        const details = error.extensions.exception.errors.join('\n ');
-        alert(`${error.message}:\n ${details}`);
-      } else {
-        alert(`${error.extensions.code}: ${error.message}`);
-      }
-    }
-    return result.data;
-  } catch (e) {
-    alert(`Error in sending data to server: ${e.message}`);
-    return null;
   }
 }
 
@@ -153,11 +122,11 @@ class IssueList extends React.Component {
     return (
       <React.Fragment>
         <h1>Issue Tracker</h1>
-        <IssueFilter />
-        <hr />
-        <IssueTable issues={issues} />
-        <hr />
-        <IssueAdd createIssue={this.createIssue} />
+        <IssueFilter/>
+        <hr/>
+        <IssueTable issues={issues}/>
+        <hr/>
+        <IssueAdd createIssue={this.createIssue}/>
       </React.Fragment>
     );
   }
@@ -167,5 +136,5 @@ IssueAdd.propTypes = {
   createIssue: PropTypes.func.isRequired,
 };
 
-const element = <IssueList />;
+const element = <IssueList/>;
 ReactDOM.render(element, document.getElementById('content'));
