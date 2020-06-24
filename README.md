@@ -16,7 +16,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * In the front-end we use `import` statement instead of `require`.
 * Weback can combine the steps of Babel transform and then putting the files together by using helpers called `loaders`. To run Babel transforms we need Babel loader.
 * Each React component should be placed in it's own file, especially if the component is a stateful one. The stateless components can be combined with other components.
- 
+* We install the third party libraries that we had earlier included directly from a CDN.
+* NPM can be used for server-side libraries as well as client side ones. Webpack understands this and can deal with client side libraries installed via npm.
  
 ## Chapter 7
 
