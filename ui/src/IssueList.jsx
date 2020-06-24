@@ -1,5 +1,7 @@
-import React from 'react';
 
+/* eslint "react/jsx-no-undef": "off" */
+
+import React from 'react';
 import IssueFilter from './IssueFilter.jsx';
 import IssueTable from './IssueTable.jsx';
 import IssueAdd from './IssueAdd.jsx';

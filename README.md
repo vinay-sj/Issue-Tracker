@@ -18,7 +18,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * Each React component should be placed in it's own file, especially if the component is a stateful one. The stateless components can be combined with other components.
 * We install the third party libraries that we had earlier included directly from a CDN.
 * NPM can be used for server-side libraries as well as client side ones. Webpack understands this and can deal with client side libraries installed via npm.
- 
+* Using an optimization called `splitChunks` in Webpack we can have two bundles, one for application code and another for all the libraries.
+
 ## Chapter 7
 
 ![ch071](/readme_images/Chapter7_1.png)
