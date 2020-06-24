@@ -20,7 +20,8 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * NPM can be used for server-side libraries as well as client side ones. Webpack understands this and can deal with client side libraries installed via npm.
 * Using an optimization called `splitChunks` in Webpack we can have two bundles, one for application code and another for all the libraries.
 * Hot Module Replacement can be used to detect changes and recompile the files. It saves time by updating only when its changed, and it removes the need for switching windows and refreshing the pages.
-
+* Webpack gives us source maps, that connects the line numbers in the transformed code to the original code. This can be used for debugging as breakpoints in the original code are converted to breakponts in the transformed code. We us `source-map` which is the most accurate(and slowest) tool for this.
+ 
 ## Chapter 7
 
 ![ch071](/readme_images/Chapter7_1.png)
