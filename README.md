@@ -1,8 +1,24 @@
 # Pro MERN Stack 2nd Edition book project
 
-This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.) by Vasan Subramanian.
+This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.) by Vasan Subramanian.
 
 # Chapter Notes
+
+## Chapter 9
+
+* We need `routing` to navigae between different views of the application.
+* It has to have the following properties:
+    * The user can use the forward/back buttons of the browser to navigate between visited pages of the application.
+    * Individual pages can be bookmarked and visited later.
+    * Links to views can be shared with others.
+* There are 2 ways to make connection to something that the browser recognizes:
+    * Hash Based: the #(anchor) portion of the URL can be interpreted as a location and this location then determines what section of the page is displayed.  
+    * Browser History: It lets JavaScript handle the page transitions, at the same time preventing the browser from reloading the page when the URL changes.
+* To switch between different components based on the hyperlink React Router uses a component called `Route`. It takes in as arguments the path that the route needs to match, and the component that needs to be shown when the path matches the URL in the browser.
+* To indicate that only one of the components needs to be shown the routes should be enlosed in a `<Switch>` component.
+* Difference between matching in Express router and React Router is that:
+    * In Express, the match is exact by default, and an * has to be added to match anything that follows.
+    * In Express, a route match stops further processing, whereas in React Router, a <Switch> is explicitly needed to make it stop at the first match.
 
 ## Chapter 8
 
