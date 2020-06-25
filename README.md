@@ -6,6 +6,10 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 
 ## Chapter 8
 
+![ch081](/readme_images/Chapter8_1.png)
+
+![ch082](/readme_images/Chapter8_2.png)
+
 * Using Webpack we can split the front-end code into component based files, inject code onto the browser incrementally and refresh the browser automatically on front-end changes.
 * The `require()` element is a function that can be used to import symbols from another module. The parameter passed to require() is the ID of the module.
 * For packages installed using npm, this is the same as the name of the package and the same as the sub-directory inside the `node_modules` directory where the package’s files are installed. For modules within the same application, the ID is the path of the file that needs to be imported.
@@ -21,7 +25,10 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * Using an optimization called `splitChunks` in Webpack we can have two bundles, one for application code and another for all the libraries.
 * Hot Module Replacement can be used to detect changes and recompile the files. It saves time by updating only when its changed, and it removes the need for switching windows and refreshing the pages.
 * Webpack gives us source maps, that connects the line numbers in the transformed code to the original code. This can be used for debugging as breakpoints in the original code are converted to breakponts in the transformed code. We us `source-map` which is the most accurate(and slowest) tool for this.
- 
+* Instead of injecting the environment variables in the front end we could generate a bundle that replaces the variables wherever it needs to be replaced. Webpack uses `DefinePlugin` for this. This method's disadvantage is that, we have to create different bundles for different environments and a change in the server configuration cannot be done without making another build.
+* To optimize the page load time for applications, we should split the bundles into smaller pieces, and load the bundles only when required using lazy loading.
+* To prevent browser caching the JavaScript bundle, we need to change the name of the script file if the contents have changed.
+
 ## Chapter 7
 
 ![ch071](/readme_images/Chapter7_1.png)
