@@ -19,7 +19,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * Difference between matching in Express router and React Router is that:
     * In Express, the match is exact by default, and an * has to be added to match anything that follows.
     * In Express, a route match stops further processing, whereas in React Router, a <Switch> is explicitly needed to make it stop at the first match.
-
+* Parameters can be specified in the route path by using the : character followed by the name of the property that will receive the value. Via props, all routed components are provided a `match` object that contains the result of the match operation and this `match` contains a field `params` that hold the route parameters.
 ## Chapter 8
 
 ![ch081](/readme_images/Chapter8_1.png)
