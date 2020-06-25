@@ -29,6 +29,12 @@ This file documents my progress through each chapter of Pro MERN Stack (1nd Ed.)
 * To optimize the page load time for applications, we should split the bundles into smaller pieces, and load the bundles only when required using lazy loading.
 * To prevent browser caching the JavaScript bundle, we need to change the name of the script file if the contents have changed.
 
+### Errors and Issues
+
+* On page 204 the author has imported `graphql_date.js`. It actually should have been `./graphql_date.js`. The correct change has been given on page 206.
+* On page 216 and page 226, in the code `ReactDOM.render(element, document.getElementById('contents'));`, it should have been `content` instead of `contents`.
+* On page 227, the line `devtool: 'source-map'`  raise an ESLint error as a trailing comma is missing at the end.
+
 ## Chapter 7
 
 ![ch071](/readme_images/Chapter7_1.png)
