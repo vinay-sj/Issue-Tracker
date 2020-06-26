@@ -20,6 +20,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
     * In Express, the match is exact by default, and an * has to be added to match anything that follows.
     * In Express, a route match stops further processing, whereas in React Router, a <Switch> is explicitly needed to make it stop at the first match.
 * Parameters can be specified in the route path by using the : character followed by the name of the property that will receive the value. Via props, all routed components are provided a `match` object that contains the result of the match operation and this `match` contains a field `params` that hold the route parameters.
+* Query parameters can be used to pass a query through the URL to filter, sort and pagination. 
+* The React Router supplies as part of props, `location` object which includes the path(in the field `pathname`) and the query string(in the field `search`). React Router leaves it to the application to determine how to  parse these fields.
+
+
 ## Chapter 8
 
 ![ch081](/readme_images/Chapter8_1.png)
