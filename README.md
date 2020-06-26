@@ -22,7 +22,13 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * Parameters can be specified in the route path by using the : character followed by the name of the property that will receive the value. Via props, all routed components are provided a `match` object that contains the result of the match operation and this `match` contains a field `params` that hold the route parameters.
 * Query parameters can be used to pass a query through the URL to filter, sort and pagination. 
 * The React Router supplies as part of props, `location` object which includes the path(in the field `pathname`) and the query string(in the field `search`). React Router leaves it to the application to determine how to  parse these fields.
-
+* React Router provides a convenient way to create links via `Link` component. It has the following differences with `href`:
+    * The paths in a Link are always absolute; it does not support relative paths.
+    * The query string and the hash can be supplied as separate properties to the Link.
+    * A variation of `Link` and `NavLink` is capable of figuring out if the current URL matches the link and adds a class to the link to show it as active
+    * A `Link` works the same between different kinds of routers, either using the # character, or using the path as is.
+* `NavLink` allows us to highlight the currently active navigation link based on the path that partially matches with URL's path based on the segments separated by a /. It only adds a class `active` when the link matches the URL.
+ 
 
 ## Chapter 8
 
