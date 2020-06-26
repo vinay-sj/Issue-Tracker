@@ -28,7 +28,8 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
     * A variation of `Link` and `NavLink` is capable of figuring out if the current URL matches the link and adds a class to the link to show it as active
     * A `Link` works the same between different kinds of routers, either using the # character, or using the path as is.
 * `NavLink` allows us to highlight the currently active navigation link based on the path that partially matches with URL's path based on the segments separated by a /. It only adds a class `active` when the link matches the URL.
- 
+* React Router has a property `history` which can be used to set the browser URL's location, query string, etc.
+* We have to use a wrapper function provided by React Router called `withRouter()` when the component is not directly in the path of any route. The function takes in a compoenet class as an argument and returns a new component class that has `history`, `location` and `match` available as part of `props`. 
 
 ## Chapter 8
 
