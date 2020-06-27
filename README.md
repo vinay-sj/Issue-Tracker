@@ -6,7 +6,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 ## Chapter 9
 
-* We need `routing` to navigae between different views of the application.
+![ch09](/readme_images/Chapter9.png)
+
+* We need `routing` to navigate between different views of the application.
 * It has to have the following properties:
     * The user can use the forward/back buttons of the browser to navigate between visited pages of the application.
     * Individual pages can be bookmarked and visited later.
@@ -33,6 +35,13 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * In `nested routes` the beginning part of the path depicts one section of a page, and based on interaction within that page, the latter part of the path depicts variation, or further definition of what's shown additionally in the page.
 * At any point in the hierarchy of components, a Route component can be added which will be rendered if the URL matches the route’s path using the `dynamic routing` philosophy of React Router.
 * Unlike Express routes, React Router’s routes don’t all need to be predeclared, they can be placed at any level and are evaluated during the process of rendering.
+* The disadvantage of hash-based routing is that when the server needs to respond to a different URL path, the browser makes a request to `/` from the server, regardless of what follows the `#` or the actual routing path.
+* The switch to using this new router is as simple as changing the import statement and using `BrowserRouter` instead of `HashRouter`. This component achieves routing by using the HTML5 history API (pushState, replaceState, and popState) to keep the UI in sync with the URL.
+* When we use Browser History Router, if what follows the `#` is different, it assumes that it's just an anchor within the page and a request is made to `/` regardless of the route's path and the server responds with the entire page.
+* In the implementation with Browser History Router, HMR calls fail when we change a souce file when we are at a location such as `/edit/1` or `/issues/`. To get the correct request we use `publicPath` to fetch update information.  
+
+### Errors and Issues
+* I was getting an error `INTERNAL_SERVER_ERROR: Variable "$id" got invalid value "1"; Expected type Int. Int cannot represent non-integer value: "1"` while implementing the Nested Routes. To fix it, I had to make a change in the code in page 256. I replaced `const data = await graphQLFetch(query, { id });` with `const data = await graphQLFetch(query, { id: parseInt(id, 10) });`.
 
 ## Chapter 8
 
