@@ -29,7 +29,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
     * A `Link` works the same between different kinds of routers, either using the # character, or using the path as is.
 * `NavLink` allows us to highlight the currently active navigation link based on the path that partially matches with URL's path based on the segments separated by a /. It only adds a class `active` when the link matches the URL.
 * React Router has a property `history` which can be used to set the browser URL's location, query string, etc.
-* We have to use a wrapper function provided by React Router called `withRouter()` when the component is not directly in the path of any route. The function takes in a compoenet class as an argument and returns a new component class that has `history`, `location` and `match` available as part of `props`. 
+* We have to use a wrapper function provided by React Router called `withRouter()` when the component is not directly in the path of any route. The function takes in a component class as an argument and returns a new component class that has `history`, `location` and `match` available as part of `props`. 
+* In `nested routes` the beginning part of the path depicts one section of a page, and based on interaction within that page, the latter part of the path depicts variation, or further definition of what's shown additionally in the page.
+* At any point in the hierarchy of components, a Route component can be added which will be rendered if the URL matches the route’s path using the `dynamic routing` philosophy of React Router.
+* Unlike Express routes, React Router’s routes don’t all need to be predeclared, they can be placed at any level and are evaluated during the process of rendering.
 
 ## Chapter 8
 
