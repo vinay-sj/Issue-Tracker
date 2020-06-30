@@ -4,6 +4,13 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 # Chapter Notes
 
+## Chapter 10
+
+* In this chapter, we convert the hard coded filter to something more flexible with user input, and fill the Edit page with a form. THen we add the ability to delete issues from the Issue List page.
+* To be able to show a value in the input, the component has to be controlled by the parent via a state variable or props variable. This is done by setting the value of the input to that state or props variable. The input form element whose value is controlled by React in this way is called a controlled component.
+* To change the value of the dropdown when using controlled components, we have to get hold of the new value, the `onChange()` event has trapped. When the user changes the value, the state variable can be updated with the new value using `setState()`.
+* 
+
 ## Chapter 9
 
 ![ch09](/readme_images/Chapter9.png)
