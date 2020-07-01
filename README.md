@@ -19,6 +19,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * While calling the parent's `onChange()` we’ll pass the value in the natural data type as a second argument. This is so that the parent handle the original event (the first argument) of onChange() if required.
 * The best way to tacke the issue where the state remains the old one when the props of the component has changed is to assign a key property to the component that changes when a new issue is loaded. React uses this property to indicate that a component object cannot be reused if the key is different and a new one has to be constructed.
 * To store the validity status of each of the inputs in a state variable we have to add a new method called `invalidFields`. Initially, we have to set the state variable to an empty object for any new issue that's being loaded.
+* To pass in the `tag` property in the component, we have to use `React.createElement()` instead of using JSX as the tag name is a variable while rendering. 
 
 ## Chapter 9
 
