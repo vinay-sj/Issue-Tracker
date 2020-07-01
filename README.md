@@ -11,7 +11,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * To change the value of the dropdown when using controlled components, we have to get hold of the new value, the `onChange()` event has trapped. When the user changes the value, the state variable can be updated with the new value using `setState()`.
 * To filter the Assignee filed we would have to add a text input, and in its `onChange`, we have to update a state variable and use that in the filter.
 * To add a filter on the Effort field(a number), we need two fields, a minimum and maximum value to filter on, both of which are optional.
-
+* To check the presence of an `id` field in the issue object and avoid rendering the form we check if the `id` field is invalid, if it's invalid we show an error message. If, not we assume the page is in the middle of completing loading the data and return null in the `render` method. We use double-equals rather than triple-equals, so that it matches anything that seems like null.
+* It is not advisable to use `this.state` directly when arriving at a new state, teh recommended way si to supply a callback to the `setState` method that takes in the previous state and returns a new state.
+ 
 ## Chapter 9
 
 ![ch09](/readme_images/Chapter9.png)
