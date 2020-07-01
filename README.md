@@ -12,8 +12,12 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * To filter the Assignee filed we would have to add a text input, and in its `onChange`, we have to update a state variable and use that in the filter.
 * To add a filter on the Effort field(a number), we need two fields, a minimum and maximum value to filter on, both of which are optional.
 * To check the presence of an `id` field in the issue object and avoid rendering the form we check if the `id` field is invalid, if it's invalid we show an error message. If, not we assume the page is in the middle of completing loading the data and return null in the `render` method. We use double-equals rather than triple-equals, so that it matches anything that seems like null.
-* It is not advisable to use `this.state` directly when arriving at a new state, teh recommended way si to supply a callback to the `setState` method that takes in the previous state and returns a new state.
- 
+* It is not advisable to use `this.state` directly when arriving at a new state, teh recommended way is to supply a callback to the `setState` method that takes in the previous state and returns a new state.
+* In the form, we want to store data in their natural data types, and want all the data type conversions routines to be shared. We could use packages like `react-numeric-input` and `react-datepicker` for this.
+* For the components that have to be edited, we take the approach of disjoint state. In this approach component is controlled as long as the user is not editing it, and when it's being edited, we'll make it an uncontrolled component. Once the user is finished with editing the two values will be brought in sync.
+* For the changes we make in the input components to take effect in the parent component we have to call the parent `onChange`. We will call this when the input loses focus using the element's `onBlur` property.
+* While calling the parent's `onChange()` we’ll pass the value in the natural data type as a second argument. This is so that the parent handle the original event (the first argument) of onChange() if required.
+
 ## Chapter 9
 
 ![ch09](/readme_images/Chapter9.png)
