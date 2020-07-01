@@ -17,6 +17,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * For the components that have to be edited, we take the approach of disjoint state. In this approach component is controlled as long as the user is not editing it, and when it's being edited, we'll make it an uncontrolled component. Once the user is finished with editing the two values will be brought in sync.
 * For the changes we make in the input components to take effect in the parent component we have to call the parent `onChange`. We will call this when the input loses focus using the element's `onBlur` property.
 * While calling the parent's `onChange()` we’ll pass the value in the natural data type as a second argument. This is so that the parent handle the original event (the first argument) of onChange() if required.
+* The best way to tacke the issue where the state remains the old one when the props of the component has changed is to assign a key property to the component that changes when a new issue is loaded. React uses this property to indicate that a component object cannot be reused if the key is different and a new one has to be constructed.
 
 ## Chapter 9
 
