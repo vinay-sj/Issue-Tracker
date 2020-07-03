@@ -6,6 +6,7 @@ import {
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import Contents from './Contents.jsx';
+
 function NavBar() {
   return (
     <Navbar>
@@ -64,7 +65,7 @@ export default function Page() {
     <div>
       <NavBar />
       <Grid fluid>
-      <Contents />
+        <Contents />
       </Grid>
       <Footer />
     </div>

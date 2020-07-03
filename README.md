@@ -27,11 +27,16 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * A Bootstrap table looks better, expands to fit the screen, and highlights a row on hover.
 * Using the `LinkContainer` we can make an entire row clickable.
 * To prevent an event from propagating from the buttons to the contained row, we’ll need to call e.preventDefault() in the handlers.
+* Using React-Bootstrap, the common input types are instantiated using a FormControl. By default, it uses a regular `<input>` type to render the actual element. The `componentClass` property can be used to change this default to any other element type.
+* A label can be associated with the form control using the `ControlLabel` component.
+* The `InputGroup.Addon` component can be used to display  inputs next to each other, as well as show the dash between two inputs instead of one below the other.
+* Instead of using a space character in between two buttons we can use `ButtonToolbar` component to keep the buttons together.
 
 ### Errors and Issues
 
 * On page 328, there is a strike-through missing in the code in `Listing 11-7`. The `<hr />` after the newly added Panel should have been striked. 
-* In listing 11-10 in page 333, `withRouter` has been wrongly striked out. `Link` should be have been striked out instead.
+* In listing 11-10 in page 333, `withRouter` has been wrongly striked out. `Link` should be have been striked out instead. To keep the label and the control together, they need to be put together under a FormGroup.
+
 ## Chapter 10
 
 ![ch101](/readme_images/Chapter10_1.png)
