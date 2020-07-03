@@ -14,6 +14,14 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * The list of components available is found in the React-Bootstrap documentation at [https://react-bootstrap.github.io/components/alerts/](https://react-bootstrap.github.io/components/alerts/).
 * To make the component look distinct we can use a property `bsStyle`. For example, Button has allowed styles `primary`, `success`, `info`, `warning`, `danger`, and `link`.
 * The list of Glyphicon icons that components recognize is available at the Bootstrap website at [https://getbootstrap.com/docs/3.3/components/](https://getbootstrap.com/docs/3.3/components/).
+* To add a tooltip to the component we use the `Tooltip` component.
+* To make the tooltip shown when hovering over the compoent, we use the `OverlayTrigger` component that wraps the component and takes in the ToolTip component as a property.
+* To change the placement of the toottip we can use the `placement` property.
+* The starting component for a navigation bar is `Navbar`. Each item is a `NavItem` and they can be grouped in a `Nav`. To align the `Nav` element to the right we use the `pullRight` property.
+* We could use `Navbar.Header` and `Navbar.Brand` for the application title.
+* The React-Bootstrap component NavDropdown can be used to create a dropdown menu, with each menu item being a MenuItem component.
+* We use `react-router-bootstrap` package, which provides a wrapper called `LinkContainer` to add actions to the navigation items.
+
 ## Chapter 10
 
 ![ch101](/readme_images/Chapter10_1.png)
