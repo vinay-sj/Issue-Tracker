@@ -6,6 +6,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 ## Chapter 10
 
+![ch101](/readme_images/Chapter10_1.png)
+
+![ch102](/readme_images/Chapter10_2.png)
+
 * In this chapter, we convert the hard coded filter to something more flexible with user input, and fill the Edit page with a form. THen we add the ability to delete issues from the Issue List page.
 * To be able to show a value in the input, the component has to be controlled by the parent via a state variable or props variable. This is done by setting the value of the input to that state or props variable. The input form element whose value is controlled by React in this way is called a controlled component.
 * To change the value of the dropdown when using controlled components, we have to get hold of the new value, the `onChange()` event has trapped. When the user changes the value, the state variable can be updated with the new value using `setState()`.
@@ -24,6 +28,18 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * The fields that cannot be changed from the issue object need to be stripped off and copied.
 * To add a button to update a single field, it needs to initiate an action that can be a function passed in as a callback in the props. The callback needs to passed from `IssueList` via `IssueTable` to `IssueRow`. To identify which issue that action has to be applied on, we also have to receive a index of the issue in the table as another value in the props. We use this method for Update and Delete operation.
 * When we delete an issue, we move it to the `trash` in a new collection called `deleted_issues`. To achieve this, we’ll retrieve the issue based on the given ID from the issues collection, add the deleted field, save it to deleted_issues, and then delete it from the issues collection.
+
+### Errors and Issues
+
+* In some places throughout this chapter, instead of a pair of single quotes `''` to represent an empty string, a double quote has been used. 
+* Similar to chapter 9, I had to make a small change in `IssueEdit.jsx` to make the code work on recent versions of GraphQL. I had to replace the line `const data = await graphQLFetch(query, { id });` to `const data = await graphQLFetch(query, { id: parseInt(id, 10) });`.
+* The date validation described in the book doesn't work in Chrome. When we enter a invalid date like `123456` it was not caught and the page doesn not render. It can be fixed by changing the unformat method. We change the code to 
+```
+function unformat(str) {
+    const isDate = str.match(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/);
+    return isDate ? new Date(str) : null;
+}
+```
 
 ## Chapter 9
 
