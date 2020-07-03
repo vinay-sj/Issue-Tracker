@@ -8,10 +8,12 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * In this chapter, we will use Bootstrap to make our UI look better.
 * React-Bootstrap contains a library of React components and has no CSS styles or themes itself. It requires Bootstrap stylesheet to be included in the application to use these components.
 * The latest version of Bootstrap (Version 4) is not yet supported by React-Bootstrap. So, we use Version 3 of the bootstrap stylesheet.
-* One way to inlcude the Bootstrap stylesheet in the application is to use Webpack’s style and CSS loaders. This can be done using `import` statement. Webpack would build the dependency tree and include all the styles that have been imported in the bundle that is created. When the application is loaded, the string is placed into the DOM as a <style> node.
+* One way to inlcude the Bootstrap stylesheet in the application is to use Webpack’s style and CSS loaders. This can be done using `import` statement. Webpack would build the dependency tree and include all the styles that have been imported in the bundle that is created. When the application is loaded, the string is placed into the DOM as a `<style>` node.
 * Bootstrap is shipped as a monolithic stylesheet. Even if only a single component is being used, the entire CSS has to be included. So we just include the entire stylesheet as is.
 * We need to let the mobile browser that the application knows how to handle small screens. The way to do so is by adding a meta tag in the main page, called viewport, the content of which specifies an initial width equal to the device’s width and an initial zoom of 100%.
-
+* The list of components available is found in the React-Bootstrap documentation at [https://react-bootstrap.github.io/components/alerts/](https://react-bootstrap.github.io/components/alerts/).
+* To make the component look distinct we can use a property `bsStyle`. For example, Button has allowed styles `primary`, `success`, `info`, `warning`, `danger`, and `link`.
+* The list of Glyphicon icons that components recognize is available at the Bootstrap website at [https://getbootstrap.com/docs/3.3/components/](https://getbootstrap.com/docs/3.3/components/).
 ## Chapter 10
 
 ![ch101](/readme_images/Chapter10_1.png)
