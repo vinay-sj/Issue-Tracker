@@ -20,6 +20,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * The best way to tacke the issue where the state remains the old one when the props of the component has changed is to assign a key property to the component that changes when a new issue is loaded. React uses this property to indicate that a component object cannot be reused if the key is different and a new one has to be constructed.
 * To store the validity status of each of the inputs in a state variable we have to add a new method called `invalidFields`. Initially, we have to set the state variable to an empty object for any new issue that's being loaded.
 * To pass in the `tag` property in the component, we have to use `React.createElement()` instead of using JSX as the tag name is a variable while rendering. 
+* To update one or more fields in the document we can use MongoDB `update` command and use the `$set` operator to set the new values of field.
+* The fields that cannot be changed from the issue object need to be stripped off and copied.
+* To add a button to update a single field, it needs to initiate an action that can be a function passed in as a callback in the props. The callback needs to passed from `IssueList` via `IssueTable` to `IssueRow`. To identify which issue that action has to be applied on, we also have to receive a index of the issue in the table as another value in the props. We use this method for Update and Delete operation.
 
 ## Chapter 9
 
@@ -58,6 +61,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * In the implementation with Browser History Router, HMR calls fail when we change a souce file when we are at a location such as `/edit/1` or `/issues/`. To get the correct request we use `publicPath` to fetch update information.  
 
 ### Errors and Issues
+
 * I was getting an error `INTERNAL_SERVER_ERROR: Variable "$id" got invalid value "1"; Expected type Int. Int cannot represent non-integer value: "1"` while implementing the Nested Routes. To fix it, I had to make a change in the code in page 256. I replaced `const data = await graphQLFetch(query, { id });` with `const data = await graphQLFetch(query, { id: parseInt(id, 10) });`.
 
 ## Chapter 8
