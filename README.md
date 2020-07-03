@@ -31,6 +31,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * A label can be associated with the form control using the `ControlLabel` component.
 * The `InputGroup.Addon` component can be used to display  inputs next to each other, as well as show the dash between two inputs instead of one below the other.
 * Instead of using a space character in between two buttons we can use `ButtonToolbar` component to keep the buttons together.
+* If we want fields to occupy space next to its precedent, or below its precedent if the width of the screen doesn't allow it we use Bootstraps grid system.
+* In the grid system, the horizontal space is divided into a maximum of 12 columns. A cell (using the component `Col`) can occupy one or more columns and a different number of columns at different screen widths. The cells wrap if there are more than 12 column-space cells within a row (`Row` component). 
+* `xs` property denotes extra small screen width. The width allocation for other screen sizes can be specified using sm, md, and lg, which stand for small, medium, and large screens, respectively. If not specified, the value applicable to the screen size lesser than this size will be used. Thus, using xs only will mean the same cell widths are used for all screen sizes.
 
 ### Errors and Issues
 
