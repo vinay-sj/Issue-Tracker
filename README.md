@@ -23,6 +23,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * To update one or more fields in the document we can use MongoDB `update` command and use the `$set` operator to set the new values of field.
 * The fields that cannot be changed from the issue object need to be stripped off and copied.
 * To add a button to update a single field, it needs to initiate an action that can be a function passed in as a callback in the props. The callback needs to passed from `IssueList` via `IssueTable` to `IssueRow`. To identify which issue that action has to be applied on, we also have to receive a index of the issue in the table as another value in the props. We use this method for Update and Delete operation.
+* When we delete an issue, we move it to the `trash` in a new collection called `deleted_issues`. To achieve this, we’ll retrieve the issue based on the given ID from the issues collection, add the deleted field, save it to deleted_issues, and then delete it from the issues collection.
 
 ## Chapter 9
 
