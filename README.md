@@ -24,12 +24,14 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * To show sections separately using a border and an optional heading we can use the `Panel` component.
 * To make a panel collapsible to save space we can add the `collapsible` property to the `Panel.Body` and, we can set the `toggle` property to the panel title so that it can control the collapse behavior.
 * To add a margin to our application we use the grid system of Bootstrap. There are 2 grids, a fluid one, which fills the entire page, and a fixed one (the default), which has a fixed size, but one that adapts to the screen size.
-
+* A Bootstrap table looks better, expands to fit the screen, and highlights a row on hover.
+* Using the `LinkContainer` we can make an entire row clickable.
+* To prevent an event from propagating from the buttons to the contained row, we’ll need to call e.preventDefault() in the handlers.
 
 ### Errors and Issues
 
 * On page 328, there is a strike-through missing in the code in `Listing 11-7`. The `<hr />` after the newly added Panel should have been striked. 
-
+* In listing 11-10 in page 333, `withRouter` has been wrongly striked out. `Link` should be have been striked out instead.
 ## Chapter 10
 
 ![ch101](/readme_images/Chapter10_1.png)
