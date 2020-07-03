@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Navbar, Nav, NavItem, NavDropdown,
   MenuItem, Glyphicon, Tooltip, OverlayTrigger,
+  Grid,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import Contents from './Contents.jsx';
@@ -62,7 +63,9 @@ export default function Page() {
   return (
     <div>
       <NavBar />
+      <Grid fluid>
       <Contents />
+      </Grid>
       <Footer />
     </div>
   );

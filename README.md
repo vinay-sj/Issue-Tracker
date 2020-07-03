@@ -21,6 +21,14 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * We could use `Navbar.Header` and `Navbar.Brand` for the application title.
 * The React-Bootstrap component NavDropdown can be used to create a dropdown menu, with each menu item being a MenuItem component.
 * We use `react-router-bootstrap` package, which provides a wrapper called `LinkContainer` to add actions to the navigation items.
+* To show sections separately using a border and an optional heading we can use the `Panel` component.
+* To make a panel collapsible to save space we can add the `collapsible` property to the `Panel.Body` and, we can set the `toggle` property to the panel title so that it can control the collapse behavior.
+* To add a margin to our application we use the grid system of Bootstrap. There are 2 grids, a fluid one, which fills the entire page, and a fixed one (the default), which has a fixed size, but one that adapts to the screen size.
+
+
+### Errors and Issues
+
+* On page 328, there is a strike-through missing in the code in `Listing 11-7`. The `<hr />` after the newly added Panel should have been striked. 
 
 ## Chapter 10
 
