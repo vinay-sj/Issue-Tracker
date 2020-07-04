@@ -34,7 +34,8 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * If we want fields to occupy space next to its precedent, or below its precedent if the width of the screen doesn't allow it we use Bootstraps grid system.
 * In the grid system, the horizontal space is divided into a maximum of 12 columns. A cell (using the component `Col`) can occupy one or more columns and a different number of columns at different screen widths. The cells wrap if there are more than 12 column-space cells within a row (`Row` component). 
 * `xs` property denotes extra small screen width. The width allocation for other screen sizes can be specified using sm, md, and lg, which stand for small, medium, and large screens, respectively. If not specified, the value applicable to the screen size lesser than this size will be used. Thus, using xs only will mean the same cell widths are used for all screen sizes.
-
+* For inline forms, we need a `<Form>` with the `inline` property to wrap around the form controls. Unlike the grid-based form, an inline form needs no columns and rows.
+ 
 ### Errors and Issues
 
 * On page 328, there is a strike-through missing in the code in `Listing 11-7`. The `<hr />` after the newly added Panel should have been striked. 
