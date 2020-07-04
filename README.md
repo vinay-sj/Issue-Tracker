@@ -3,7 +3,10 @@
 This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.) by Vasan Subramanian.
 
 # Chapter Notes
+
 ## Chapter 11
+
+![ch11](/readme_images/Chapter11.png)
 
 * In this chapter, we will use Bootstrap to make our UI look better.
 * React-Bootstrap contains a library of React components and has no CSS styles or themes itself. It requires Bootstrap stylesheet to be included in the application to use these components.
@@ -47,6 +50,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 * On page 328, there is a strike-through missing in the code in `Listing 11-7`. The `<hr />` after the newly added Panel should have been striked. 
 * In listing 11-10 in page 333, `withRouter` has been wrongly striked out. `Link` should be have been striked out instead. To keep the label and the control together, they need to be put together under a FormGroup.
+* On page 373, in the changes to `IssueList.jsx` the book should have striked out the line
+```
+this.createIssue = this.createIssue.bind(this);
+```
 
 ## Chapter 10
 
