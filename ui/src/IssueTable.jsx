@@ -6,8 +6,8 @@ import {
 } from 'react-bootstrap';
 
 const IssueRow = withRouter(({
-                               issue, location: { search }, closeIssue, deleteIssue, index,
-                             }) => {
+  issue, location: { search }, closeIssue, deleteIssue, index,
+}) => {
   const selectLocation = { pathname: `/issues/${issue.id}`, search };
   const editTooltip = (
     <Tooltip id="close-tooltip" placement="top">Edit Issue</Tooltip>
@@ -83,19 +83,19 @@ export default function IssueTable({ issues, closeIssue, deleteIssue }) {
   return (
     <Table bordered condensed hover responsive>
       <thead>
-      <tr>
-        <th>ID</th>
-        <th>Status</th>
-        <th>Owner</th>
-        <th>Created</th>
-        <th>Effort</th>
-        <th>Due Date</th>
-        <th>Title</th>
-        <th>Action</th>
-      </tr>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Owner</th>
+          <th>Created</th>
+          <th>Effort</th>
+          <th>Due Date</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
       </thead>
       <tbody>
-      {issueRows}
+        {issueRows}
       </tbody>
     </Table>
   );

@@ -41,6 +41,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * To implement a close icon as part of a `<Alert>` we have to pass in a handler that modifies the visibility state. The `Alert` component takes in a callback named `onDismiss` to achieve this.
 * React-Bootstrap’s Collapse component has a property `in` which determines whether its child element fades in or out. When set to `true`, the child element shows (fades in) and when set to `false`, it hides (fades out).
 * `Modal` works better when the number of required fields is small. When a `modal` is rendered, it is rendered outside the main `<div>` of the DOM that holds the page. Thus, in terms of code placement, it can be placed anywhere in the component hierarchy.
+* The root of the modal dialog definition is the `Modal` component. This component requires two important properties: `showing`, which controls the visibility of the modal dialog, and an `onHide()` handler, which will be called when the user clicks on the cross icon to dismiss the dialog.
 
 ### Errors and Issues
 
