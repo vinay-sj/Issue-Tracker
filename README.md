@@ -37,6 +37,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * For inline forms, we need a `<Form>` with the `inline` property to wrap around the form controls. Unlike the grid-based form, an inline form needs no columns and rows.
 * To lay out a horizontal form, we need the `horizontal` property, therefore, we need to replace a plain `<form>` with Bootstrap’s `<Form>` and set this property.
 * Bootstrap’s form controls support displaying invalid input fields using the `validationState` property. A value of `error` for this property makes it display the label and the control in red, as well as an red cross icon to indicate the same within the form control.
+* Bootstrap provides nicely styled alerts via the `Alert` component. It has different styles for the message like `danger` and `warning`, and it also has the ability to show a Close icon. The Alerts visibility needs to be handled by the parent component.
+* To implement a close icon as part of a `<Alert>` we have to pass in a handler that modifies the visibility state. The `Alert` component takes in a callback named `onDismiss` to achieve this.
+
 
 ### Errors and Issues
 
