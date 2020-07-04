@@ -6,12 +6,8 @@ import {
 } from 'react-bootstrap';
 
 const IssueRow = withRouter(({
-  issue,
-  location: { search },
-  closeIssue,
-  deleteIssue,
-  index,
-}) => {
+                               issue, location: { search }, closeIssue, deleteIssue, index,
+                             }) => {
   const selectLocation = { pathname: `/issues/${issue.id}`, search };
   const editTooltip = (
     <Tooltip id="close-tooltip" placement="top">Edit Issue</Tooltip>
@@ -40,7 +36,7 @@ const IssueRow = withRouter(({
       <td>{issue.owner}</td>
       <td>{issue.created.toDateString()}</td>
       <td>{issue.effort}</td>
-      <td>{issue.due ? issue.due.toDateString() : ' '}</td>
+      <td>{issue.due ? issue.due.toDateString() : ''}</td>
       <td>{issue.title}</td>
       <td>
         <LinkContainer to={`/edit/${issue.id}`}>
@@ -65,6 +61,7 @@ const IssueRow = withRouter(({
       </td>
     </tr>
   );
+
   return (
     <LinkContainer to={selectLocation}>
       {tableRow}
@@ -82,22 +79,23 @@ export default function IssueTable({ issues, closeIssue, deleteIssue }) {
       index={index}
     />
   ));
+
   return (
     <Table bordered condensed hover responsive>
       <thead>
-        <tr>
-          <th>ID</th>
-          <th>Status</th>
-          <th>Owner</th>
-          <th>Created</th>
-          <th>Effort</th>
-          <th>Due Date</th>
-          <th>Title</th>
-          <th>Action</th>
-        </tr>
+      <tr>
+        <th>ID</th>
+        <th>Status</th>
+        <th>Owner</th>
+        <th>Created</th>
+        <th>Effort</th>
+        <th>Due Date</th>
+        <th>Title</th>
+        <th>Action</th>
+      </tr>
       </thead>
       <tbody>
-        {issueRows}
+      {issueRows}
       </tbody>
     </Table>
   );

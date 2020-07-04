@@ -40,6 +40,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * Bootstrap provides nicely styled alerts via the `Alert` component. It has different styles for the message like `danger` and `warning`, and it also has the ability to show a Close icon. The Alerts visibility needs to be handled by the parent component.
 * To implement a close icon as part of a `<Alert>` we have to pass in a handler that modifies the visibility state. The `Alert` component takes in a callback named `onDismiss` to achieve this.
 * React-Bootstrap’s Collapse component has a property `in` which determines whether its child element fades in or out. When set to `true`, the child element shows (fades in) and when set to `false`, it hides (fades out).
+* `Modal` works better when the number of required fields is small. When a `modal` is rendered, it is rendered outside the main `<div>` of the DOM that holds the page. Thus, in terms of code placement, it can be placed anywhere in the component hierarchy.
 
 ### Errors and Issues
 
