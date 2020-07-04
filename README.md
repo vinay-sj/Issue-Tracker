@@ -35,7 +35,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * In the grid system, the horizontal space is divided into a maximum of 12 columns. A cell (using the component `Col`) can occupy one or more columns and a different number of columns at different screen widths. The cells wrap if there are more than 12 column-space cells within a row (`Row` component). 
 * `xs` property denotes extra small screen width. The width allocation for other screen sizes can be specified using sm, md, and lg, which stand for small, medium, and large screens, respectively. If not specified, the value applicable to the screen size lesser than this size will be used. Thus, using xs only will mean the same cell widths are used for all screen sizes.
 * For inline forms, we need a `<Form>` with the `inline` property to wrap around the form controls. Unlike the grid-based form, an inline form needs no columns and rows.
- 
+* To lay out a horizontal form, we need the `horizontal` property, therefore, we need to replace a plain `<form>` with Bootstrap’s `<Form>` and set this property.
+* Bootstrap’s form controls support displaying invalid input fields using the `validationState` property. A value of `error` for this property makes it display the label and the control in red, as well as an red cross icon to indicate the same within the form control.
+
 ### Errors and Issues
 
 * On page 328, there is a strike-through missing in the code in `Listing 11-7`. The `<hr />` after the newly added Panel should have been striked. 
