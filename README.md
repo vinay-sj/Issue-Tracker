@@ -4,6 +4,19 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 # Chapter Notes
 
+## Chapter 12
+
+* `Isomorphic` applications are those that use the same codebase on the server as well as the client to do either task: render to the DOM or create HTML.
+* Server rendering fetch data via APIs and construct the DOM on the browser, the entire HTML is constructed on the server and sent to the browser.
+* To have pages from an application be properly indexed by search engines, the server needs to respond with the same HTML that will result after the Ajax call in `componentDidMount()` methods and subsequent re-rendering of the page.
+* In our application, the first time any page is opened in the application, the entire page will be constructed and returned from the server. This is `server rendering`. Once any page is loaded and the user navigates to another page, we’ll make it work like an SPA. That is, only the API will be made and the DOM will be modified directly on the browser. This is `browser rendering`.
+* If an application does not need to be indexed by search engines, the complexity introduced by server rendering can be avoided. Typically, if the pages do not have public access, they don’t need search engine indexing.
+* What we’ll need instead is three sets of files in the UI directory:
+    * All the shared files, essentially, all the React components(`src`).
+    * A set of files used to run the UI server using Express. This will import the shared React components for server rendering(`server`).
+    * A starting point for the browser bundle, one that includes all the shared React components and can be sent to the browser to execute(`browser`).
+* 
+
 ## Chapter 11
 
 ![ch11](/readme_images/Chapter11.png)
