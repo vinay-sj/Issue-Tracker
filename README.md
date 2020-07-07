@@ -23,7 +23,15 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
     * React mounts and renders the About component, whose code is part of the JavaScript bundle. At this point, all the static text in the component is seen.
     * Once the initial mount is completed, `componentDidMount()` is called, which will trigger a call to the API server to fetch the data for the component. 
     * On successful fetch of the data using the API call, the component is re-rendered with the data.
-
+* The Babel compiler places any variables exported using the export default keywords also in `module.exports`, but using the property `default`.
+* The server rendering sequence is:
+    * The user types in the URL for the About page.
+    * The browser sends a request to /about to the UI server.
+    * The UI server fetches the data required for the page from the API server using a GraphQL API call.
+    * On the UI server, `ReactDOM.renderToString()` is called with the About component and its data.
+    * The server returns an HTML, with the markup for the About page included in it.
+    * The browser converts the HTML to the DOM and the About page is visible in the browser.
+    
 ## Chapter 11
 
 ![ch11](/readme_images/Chapter11.png)
