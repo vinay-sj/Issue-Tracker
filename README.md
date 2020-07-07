@@ -31,7 +31,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
     * On the UI server, `ReactDOM.renderToString()` is called with the About component and its data.
     * The server returns an HTML, with the markup for the About page included in it.
     * The browser converts the HTML to the DOM and the About page is visible in the browser.
-    
+* Webpack can be used for the server as well, and it can compile JSX on the fly. 
+* The difference of Webpack in the front-end is that many server-side Node packages such as Express are not compatible with Webpack. They import other packages dynamically, making it hard for Webpack to follow the dependency chain. We have to exclude the third-party libraries from the bundle and rely on `node_modules` to be present in the UI server’s file system.
+* In the back-end `source-map-support` module makes error messages more readable and in the front-end lets us add breakpoints.
+
 ## Chapter 11
 
 ![ch11](/readme_images/Chapter11.png)
