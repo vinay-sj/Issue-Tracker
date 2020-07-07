@@ -15,7 +15,14 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
     * All the shared files, essentially, all the React components(`src`).
     * A set of files used to run the UI server using Express. This will import the shared React components for server rendering(`server`).
     * A starting point for the browser bundle, one that includes all the shared React components and can be sent to the browser to execute(`browser`).
-* 
+* The method to create an HTML on the server side is `ReactDOMServer.renderToString()`.
+* The browser rendering serquence is:
+    * The user types in the URL of the home page or refreshes the browser at the home page.
+    * The UI server returns index.html, which has a reference to the JavaScript app.bundle.js. That is also fetched, and it contains the react components, including the About component. Now, the page is considered loaded.
+    * The user clicks on the link to the About page.
+    * React mounts and renders the About component, whose code is part of the JavaScript bundle. At this point, all the static text in the component is seen.
+    * Once the initial mount is completed, `componentDidMount()` is called, which will trigger a call to the API server to fetch the data for the component. 
+    * On successful fetch of the data using the API call, the component is re-rendered with the data.
 
 ## Chapter 11
 
