@@ -34,6 +34,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * Webpack can be used for the server as well, and it can compile JSX on the fly. 
 * The difference of Webpack in the front-end is that many server-side Node packages such as Express are not compatible with Webpack. They import other packages dynamically, making it hard for Webpack to follow the dependency chain. We have to exclude the third-party libraries from the bundle and rely on `node_modules` to be present in the UI server’s file system.
 * In the back-end `source-map-support` module makes error messages more readable and in the front-end lets us add breakpoints.
+* To avoid restarting the server for every change, we use HMR to automatically reload the modules in the back-end. 
+* We create a new Webpack configuration that enables HMR for the server. Since we don’t have a server to serve the bundle in the case of the server code, we’ll have to create a separate configuration file. We use `webpack-merge` to merge changes to the original configuration for HMR.
+* To automatically reload the new changed modules in the express route we will create a function wrapper and call `render()` explicitly within this. Then the `render` function called is always the latest one.
+* Since we are using HMR to load modules automatically, we remove nodemon from the `start` script.
 
 ## Chapter 11
 
@@ -50,7 +54,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * The list of Glyphicon icons that components recognize is available at the Bootstrap website at [https://getbootstrap.com/docs/3.3/components/](https://getbootstrap.com/docs/3.3/components/).
 * To add a tooltip to the component we use the `Tooltip` component.
 * To make the tooltip shown when hovering over the compoent, we use the `OverlayTrigger` component that wraps the component and takes in the ToolTip component as a property.
-* To change the placement of the toottip we can use the `placement` property.
+* To change the placement of the tooltip we can use the `placement` property.
 * The starting component for a navigation bar is `Navbar`. Each item is a `NavItem` and they can be grouped in a `Nav`. To align the `Nav` element to the right we use the `pullRight` property.
 * We could use `Navbar.Header` and `Navbar.Brand` for the application title.
 * The React-Bootstrap component NavDropdown can be used to create a dropdown menu, with each menu item being a MenuItem component.
