@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "5efe515bb41fc35c4fc1";
+/******/ 	var hotCurrentHash = "4d54f06e936bbbb8e63d";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1000,6 +1000,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _template_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./template.js */ "./server/template.js");
 /* harmony import */ var _src_graphQLFetch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/graphQLFetch */ "./src/graphQLFetch.js");
 /* harmony import */ var _src_store_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/store.js */ "./src/store.js");
+/* harmony import */ var _src_About_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/About.jsx */ "./src/About.jsx");
+
 
 
 
@@ -1009,7 +1011,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 async function render(req, res) {
-  const initialData = await Object(_src_graphQLFetch__WEBPACK_IMPORTED_MODULE_5__["default"])('query{about}');
+  const initialData = _src_About_jsx__WEBPACK_IMPORTED_MODULE_7__["default"].fetchData();
   _src_store_js__WEBPACK_IMPORTED_MODULE_6__["default"].initialData = initialData;
   const element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["StaticRouter"], {
     location: req.url,
@@ -1171,12 +1173,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
+/* harmony import */ var _graphQLFetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./graphQLFetch */ "./src/graphQLFetch.js");
 
 
-function About() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Issue Tracker version 0.9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, _store_js__WEBPACK_IMPORTED_MODULE_1__["default"].initialData ? _store_js__WEBPACK_IMPORTED_MODULE_1__["default"].initialData.about : 'unknown'));
+
+class About extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  static async fetchData() {
+    const data = await Object(_graphQLFetch__WEBPACK_IMPORTED_MODULE_2__["default"])('query {about}');
+    return data;
+  }
+
+  constructor(props) {
+    super(props);
+    const apiAbout = _store_js__WEBPACK_IMPORTED_MODULE_1__["default"].initialData ? _store_js__WEBPACK_IMPORTED_MODULE_1__["default"].initialData.about : null;
+    this.state = {
+      apiAbout
+    };
+  }
+
+  async componentDidMount() {
+    const {
+      apiAbout
+    } = this.state;
+
+    if (apiAbout == null) {
+      const data = await About.fetchData();
+      this.setState({
+        apiAbout: data.about
+      });
+    }
+  }
+
+  render() {
+    const {
+      apiAbout
+    } = this.state;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "text-center"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Issue Tracker version 0.9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, apiAbout));
+  }
+
 }
 
 /***/ }),
