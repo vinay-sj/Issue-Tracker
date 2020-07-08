@@ -38,6 +38,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * We create a new Webpack configuration that enables HMR for the server. Since we don’t have a server to serve the bundle in the case of the server code, we’ll have to create a separate configuration file. We use `webpack-merge` to merge changes to the original configuration for HMR.
 * To automatically reload the new changed modules in the express route we will create a function wrapper and call `render()` explicitly within this. Then the `render` function called is always the latest one.
 * Since we are using HMR to load modules automatically, we remove nodemon from the `start` script.
+* On the server, we use `StaticRouter` in place of `BrowserRouter`. The StaticRouter has to be supplied the URL. Based on this, the router will choose an appropriate component to render. StaticRouter takes a property called `location`, which is a static URL that the rest of the rendering will need. It also needs a property called `context`.
+* React makes a distinction between rendering the DOM to replace a DOM element and attaching event handlers to the server-rendered DOM. We receive a warning to change `render()` to `hydrate()`. When we use `hydrate` React attaches all the handlers.
+* To be able to make request to the API server via `graphQLFetch()` from the server, we need to replace `whatwg-fetch` module with `isomorphic-fetch` module as it can be used both on the browser as well as Node.js.
 
 ## Chapter 11
 

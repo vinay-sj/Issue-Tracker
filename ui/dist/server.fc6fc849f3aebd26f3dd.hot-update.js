@@ -1,4 +1,17 @@
-export default function template(body) {
+exports.id = "server";
+exports.modules = {
+
+/***/ "./server/template.js":
+/*!****************************!*\
+  !*** ./server/template.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return template; });
+function template(body) {
   return `<!DOCTYPE html>
 <html>
 
@@ -10,7 +23,7 @@ export default function template(body) {
   <style>
     table.table-hover tr {cursor: pointer;}
     .panel-title a{display: block; width: 100%; cursor: pointer;}
-  </style>
+    </style>
 </head>
 <body>
    <!-- Page generated from template. -->
@@ -23,3 +36,8 @@ export default function template(body) {
 </html>
 `;
 }
+
+/***/ })
+
+};
+//# sourceMappingURL=server.fc6fc849f3aebd26f3dd.hot-update.js.map
