@@ -41,6 +41,8 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * On the server, we use `StaticRouter` in place of `BrowserRouter`. The StaticRouter has to be supplied the URL. Based on this, the router will choose an appropriate component to render. StaticRouter takes a property called `location`, which is a static URL that the rest of the rendering will need. It also needs a property called `context`.
 * React makes a distinction between rendering the DOM to replace a DOM element and attaching event handlers to the server-rendered DOM. We receive a warning to change `render()` to `hydrate()`. When we use `hydrate` React attaches all the handlers.
 * To be able to make request to the API server via `graphQLFetch()` from the server, we need to replace `whatwg-fetch` module with `isomorphic-fetch` module as it can be used both on the browser as well as Node.js.
+* We can use the Webpack's plugin called `DefinePlugin` to define global variables that are available at runtime. This can be used to indicate whether functions are called from the browser or Node.js by defining a variable `__isBrowser__`.
+* To pass information down to the `About` component while it's being rendered, we can use a `global` store for all the data that is needed for the hierarchy of components that need to be rendered. The users of this module assign key values that will be available globally by importing this module.  
 
 ## Chapter 11
 
