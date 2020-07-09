@@ -10,16 +10,32 @@ import NumInput from './NumInput.jsx';
 import DateInput from './DateInput.jsx';
 import TextInput from './TextInput.jsx';
 import Toast from './Toast.jsx';
+import store from './store.js';
 
 export default class IssueEdit extends React.Component {
+  static async fetchData(match, search, showError) {
+    const query = `query issue($id: Int!) {
+      issue(id: $id) {
+        id title status owner
+        effort created due description
+      }
+    }`;
+
+    const { params: { id } } = match;
+    const result = await graphQLFetch(query, { id: parseInt(id, 10) }, showError);
+    return result;
+  }
+
   constructor() {
     super();
+    const issue = store.initialData ? store.initialData.issue : null;
+    delete store.initialData;
     this.state = {
-      issue: {},
+      issue,
       invalidFields: {},
       showingValidation: false,
       toastVisible: false,
-      toastMessage: ' ',
+      toastMessage: '',
       toastType: 'success',
     };
     this.onChange = this.onChange.bind(this);
@@ -31,7 +47,8 @@ export default class IssueEdit extends React.Component {
   }
 
   componentDidMount() {
-    this.loadData();
+    const { issue } = this.state;
+    if (issue == null) this.loadData();
   }
 
   componentDidUpdate(prevProps) {
@@ -85,15 +102,8 @@ export default class IssueEdit extends React.Component {
   }
 
   async loadData() {
-    const query = `query issue($id: Int!) {
-    issue(id: $id) {
-    id title status owner
-    effort created due description
-    }
-    }`;
-
-    const { match: { params: { id } } } = this.props;
-    const data = await graphQLFetch(query, { id: parseInt(id, 10) }, this.showError);
+    const { match } = this.props;
+    const data = await IssueEdit.fetchData(match, null, this.showError);
     this.setState({ issue: data ? data.issue : {}, invalidFields: {} });
   }
 
@@ -122,6 +132,9 @@ export default class IssueEdit extends React.Component {
   }
 
   render() {
+    const { issue } = this.state;
+    if (issue == null) return null;
+
     const { issue: { id } } = this.state;
     const { match: { params: { id: propsId } } } = this.props;
     const { toastVisible, toastMessage, toastType } = this.state;

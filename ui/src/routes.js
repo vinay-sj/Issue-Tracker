@@ -1,6 +1,6 @@
-import IssueEdit from './IssueEdit.jsx'
-import IssueList from './IssueList.jsx'
-import IssueReport from './IssueReport.jsx'
+import IssueEdit from './IssueEdit.jsx';
+import IssueList from './IssueList.jsx';
+import IssueReport from './IssueReport.jsx';
 import About from './About.jsx';
 import NotFound from './NotFound.jsx';
 

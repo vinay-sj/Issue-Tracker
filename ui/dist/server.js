@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "06b0c4a0a9f50d322332";
+/******/ 	var hotCurrentHash = "1d1a8fb7c65a8a55628e";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1013,7 +1013,10 @@ async function render(req, res) {
   let initialData;
 
   if (activeRoute && activeRoute.component.fetchData) {
-    initialData = await activeRoute.component.fetchData();
+    const match = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["matchPath"])(req.path, activeRoute);
+    const index = req.url.indexOf('?');
+    const search = index !== -1 ? req.url.substr(index) : null;
+    initialData = await activeRoute.component.fetchData(match, search);
   }
 
   _src_store_js__WEBPACK_IMPORTED_MODULE_5__["default"].initialData = initialData;
@@ -1039,6 +1042,9 @@ async function render(req, res) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return template; });
+/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! serialize-javascript */ "serialize-javascript");
+/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(serialize_javascript__WEBPACK_IMPORTED_MODULE_0__);
+
 function template(body, data) {
   return `<!DOCTYPE html>
 <html>
@@ -1056,7 +1062,7 @@ function template(body, data) {
 <body>
    <!-- Page generated from template. -->
   <div id="content">${body}</div>
-  <script>window.__INITIAL_DATA__ = ${JSON.stringify(data)}</script>
+  <script>window.__INITIAL_DATA__ = ${serialize_javascript__WEBPACK_IMPORTED_MODULE_0___default()(data)}</script>
   <script src="/env.js"></script>
   <script src="/vendor.bundle.js"></script>
   <script src="/app.bundle.js"></script>
@@ -1171,19 +1177,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
-/* harmony import */ var _graphQLFetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./graphQLFetch */ "./src/graphQLFetch.js");
+/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
 
 
 
 class About extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   static async fetchData() {
-    const data = await Object(_graphQLFetch__WEBPACK_IMPORTED_MODULE_2__["default"])('query {about}');
+    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_2__["default"])('query {about}');
     return data;
   }
 
   constructor(props) {
     super(props);
     const apiAbout = _store_js__WEBPACK_IMPORTED_MODULE_1__["default"].initialData ? _store_js__WEBPACK_IMPORTED_MODULE_1__["default"].initialData.about : null;
+    delete _store_js__WEBPACK_IMPORTED_MODULE_1__["default"].initialData;
     this.state = {
       apiAbout
     };
@@ -1636,6 +1643,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DateInput_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DateInput.jsx */ "./src/DateInput.jsx");
 /* harmony import */ var _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TextInput.jsx */ "./src/TextInput.jsx");
 /* harmony import */ var _Toast_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Toast.jsx */ "./src/Toast.jsx");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
+
 
 
 
@@ -1646,14 +1655,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class IssueEdit extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  static async fetchData(match, search, showError) {
+    const query = `query issue($id: Int!) {
+      issue(id: $id) {
+        id title status owner
+        effort created due description
+      }
+    }`;
+    const {
+      params: {
+        id
+      }
+    } = match;
+    const result = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__["default"])(query, {
+      id: parseInt(id, 10)
+    }, showError);
+    return result;
+  }
+
   constructor() {
     super();
+    const issue = _store_js__WEBPACK_IMPORTED_MODULE_9__["default"].initialData ? _store_js__WEBPACK_IMPORTED_MODULE_9__["default"].initialData.issue : null;
+    delete _store_js__WEBPACK_IMPORTED_MODULE_9__["default"].initialData;
     this.state = {
-      issue: {},
+      issue,
       invalidFields: {},
       showingValidation: false,
       toastVisible: false,
-      toastMessage: ' ',
+      toastMessage: '',
       toastType: 'success'
     };
     this.onChange = this.onChange.bind(this);
@@ -1665,7 +1694,10 @@ class IssueEdit extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   componentDidMount() {
-    this.loadData();
+    const {
+      issue
+    } = this.state;
+    if (issue == null) this.loadData();
   }
 
   componentDidUpdate(prevProps) {
@@ -1756,22 +1788,10 @@ class IssueEdit extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   async loadData() {
-    const query = `query issue($id: Int!) {
-    issue(id: $id) {
-    id title status owner
-    effort created due description
-    }
-    }`;
     const {
-      match: {
-        params: {
-          id
-        }
-      }
+      match
     } = this.props;
-    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__["default"])(query, {
-      id: parseInt(id, 10)
-    }, this.showError);
+    const data = await IssueEdit.fetchData(match, null, this.showError);
     this.setState({
       issue: data ? data.issue : {},
       invalidFields: {}
@@ -1813,6 +1833,10 @@ class IssueEdit extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   render() {
+    const {
+      issue
+    } = this.state;
+    if (issue == null) return null;
     const {
       issue: {
         id
@@ -2196,6 +2220,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
 /* harmony import */ var _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./IssueDetail.jsx */ "./src/IssueDetail.jsx");
 /* harmony import */ var _Toast_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Toast.jsx */ "./src/Toast.jsx");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
 /* eslint "react/jsx-no-undef": "off" */
 
 
@@ -2206,11 +2231,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  static async fetchdata(match, search, showError) {
+    const params = new url_search_params__WEBPACK_IMPORTED_MODULE_1___default.a(search);
+    const vars = {};
+    if (params.get('status')) vars.status = params.get('status');
+    const effortMin = parseInt(params.get('effortMin'), 10);
+    if (!Number.isNaN(effortMin)) vars.effortMin = effortMin;
+    const effortMax = parseInt(params.get('effortMax'), 10);
+    if (!Number.isNaN(effortMax)) vars.effortMax = effortMax;
+    const query = `query issueList(
+      $status: StatusType
+      $effortMin: Int
+      $effortMax: Int
+      ) {
+      issueList (
+        status: $status
+        effortMin: $effortMin
+        effortMax: $effortMax
+        ) {
+        id title status owner
+        created effort due
+      }
+    }`;
+    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__["default"])(query, vars, showError);
+    return data;
+  }
+
   constructor() {
     super();
+    const issues = _store_js__WEBPACK_IMPORTED_MODULE_9__["default"].initialData ? _store_js__WEBPACK_IMPORTED_MODULE_9__["default"].initialData.issueList : null;
+    delete _store_js__WEBPACK_IMPORTED_MODULE_9__["default"].initialData;
     this.state = {
-      issues: [],
+      issues,
       toastVisible: false,
       toastMessage: ' ',
       toastType: 'info'
@@ -2223,7 +2277,10 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   componentDidMount() {
-    this.loadData();
+    const {
+      issues
+    } = this.state;
+    if (issues == null) this.loadData();
   }
 
   componentDidUpdate(prevProps) {
@@ -2249,28 +2306,7 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         search
       }
     } = this.props;
-    const params = new url_search_params__WEBPACK_IMPORTED_MODULE_1___default.a(search);
-    const vars = {};
-    if (params.get('status')) vars.status = params.get('status');
-    const effortMin = parseInt(params.get('effortMin'), 10);
-    if (!Number.isNaN(effortMin)) vars.effortMin = effortMin;
-    const effortMax = parseInt(params.get('effortMax'), 10);
-    if (!Number.isNaN(effortMax)) vars.effortMax = effortMax;
-    const query = `query issueList(
-      $status: StatusType
-      $effortMin: Int
-      $effortMax: Int
-      ) {
-      issueList (
-        status: $status
-        effortMin: $effortMin
-        effortMax: $effortMax
-        ) {
-        id title status owner
-        created effort due
-      }
-    }`;
-    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__["default"])(query, vars, this.showError);
+    const data = await IssueList.fetchdata(null, search, this.showError);
 
     if (data) {
       this.setState({
@@ -2375,6 +2411,7 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     const {
       issues
     } = this.state;
+    if (issues == null) return null;
     const {
       match
     } = this.props;
@@ -3133,6 +3170,17 @@ module.exports = require("react-router-bootstrap");
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
+
+/***/ }),
+
+/***/ "serialize-javascript":
+/*!***************************************!*\
+  !*** external "serialize-javascript" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("serialize-javascript");
 
 /***/ }),
 

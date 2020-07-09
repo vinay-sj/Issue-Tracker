@@ -46,6 +46,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * To have the data required via API calls available before rendering is initiated on the server, we need to keep a common source of truth for the list of routes available. Then, we could match the request’s URL against each route and figure out which component (and therefore, which fetchData() method) will match.
 * To determine which of the components would match the current URL that is passed in via the request object in render.jsx we could use a function called `matchPath()` exposed by React Router.
 
+### Errors and Issues
+
+* In listing 12-45 we have to add `parseInt(id, 10)` into the graphQLFetch method.
+
 ## Chapter 11
 
 ![ch11](/readme_images/Chapter11.png)

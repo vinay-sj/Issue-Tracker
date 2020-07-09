@@ -1,6 +1,6 @@
 import React from 'react';
 import store from './store.js';
-import graphQLFetch from './graphQLFetch';
+import graphQLFetch from './graphQLFetch.js';
 
 export default class About extends React.Component {
   static async fetchData() {
@@ -11,6 +11,7 @@ export default class About extends React.Component {
   constructor(props) {
     super(props);
     const apiAbout = store.initialData ? store.initialData.about : null;
+    delete store.initialData;
     this.state = { apiAbout };
   }
 
