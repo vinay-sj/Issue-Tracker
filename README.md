@@ -43,6 +43,8 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * To be able to make request to the API server via `graphQLFetch()` from the server, we need to replace `whatwg-fetch` module with `isomorphic-fetch` module as it can be used both on the browser as well as Node.js.
 * We can use the Webpack's plugin called `DefinePlugin` to define global variables that are available at runtime. This can be used to indicate whether functions are called from the browser or Node.js by defining a variable `__isBrowser__`.
 * To pass information down to the `About` component while it's being rendered, we can use a `global` store for all the data that is needed for the hierarchy of components that need to be rendered. The users of this module assign key values that will be available globally by importing this module.  
+* To have the data required via API calls available before rendering is initiated on the server, we need to keep a common source of truth for the list of routes available. Then, we could match the request’s URL against each route and figure out which component (and therefore, which fetchData() method) will match.
+* To determine which of the components would match the current URL that is passed in via the request object in render.jsx we could use a function called `matchPath()` exposed by React Router.
 
 ## Chapter 11
 
