@@ -49,6 +49,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
     * The route specification remains simple and has only the top-level pages in a flat structure, without any hierarchy.
     * It gives us an opportunity to combine two API calls into one in the case where the Issue List is loaded with a selected issue.
 * The way to specify that a parameter is optional in the route is by appending a `?` to it.
+* To make the server itself respond with a 301 Redirect so that the browser fetches `/issues` instead of `/` we use the React Router's `StaticRouter`. It handles this by setting a variable called `url` in any context that is passed to it.
 
 ### Errors and Issues
 

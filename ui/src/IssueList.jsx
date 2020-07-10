@@ -3,7 +3,6 @@
 
 import React from 'react';
 import URLSearchParams from 'url-search-params';
-// import { Route } from 'react-router-dom';
 import { Panel } from 'react-bootstrap';
 import IssueFilter from './IssueFilter.jsx';
 import IssueTable from './IssueTable.jsx';
