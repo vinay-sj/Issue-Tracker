@@ -1,6 +1,22 @@
-import React from 'react';
+exports.id = "server";
+exports.modules = {
 
-export default function IssueDetail({ issue }){
+/***/ "./src/IssueDetail.jsx":
+/*!*****************************!*\
+  !*** ./src/IssueDetail.jsx ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return IssueDetail; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function IssueDetail({
+  issue
+}) {
   // constructor() {
   //   super();
   //   this.state = {
@@ -49,24 +65,17 @@ export default function IssueDetail({ issue }){
   //     this.setState({ issue: {} });
   //   }
   // }
-
   // render() {
   //   const { issue: { description } } = this.state;
   //   const { toastVisible, toastType, toastMessage } = this.state;
   if (issue) {
-    return (
-      <div>
-        <h3>Description</h3>
-        <pre>{issue.description}</pre>
-        {/*<Toast*/}
-        {/*  showing={toastVisible}*/}
-        {/*  onDismiss={this.dismissToast}*/}
-        {/*  bsStyle={toastType}*/}
-        {/*>*/}
-        {/*  {toastMessage}*/}
-        {/*</Toast>*/}
-      </div>
-    );
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, issue.description));
   }
+
   return null;
 }
+
+/***/ })
+
+};
+//# sourceMappingURL=server.45e62e66c0ad5ce22022.hot-update.js.map
