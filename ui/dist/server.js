@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "1d1a8fb7c65a8a55628e";
+/******/ 	var hotCurrentHash = "4ce15f3cf84d2470c165";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1130,10 +1130,7 @@ if (apiProxyTarget) {
   app.use('/graphql', http_proxy_middleware__WEBPACK_IMPORTED_MODULE_2___default()({
     target: apiProxyTarget
   }));
-} // const UI_API_ENDPOINT = process.env.UI_API_ENDPOINT
-//   || 'http://localhost:3000/graphql';
-// const env = { UI_API_ENDPOINT };
-
+}
 
 if (!process.env.UI_API_ENDPOINT) {
   process.env.UI_API_ENDPOINT = 'http://localhost:3000/graphql';
@@ -2233,7 +2230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-  static async fetchdata(match, search, showError) {
+  static async fetchData(match, search, showError) {
     const params = new url_search_params__WEBPACK_IMPORTED_MODULE_1___default.a(search);
     const vars = {};
     if (params.get('status')) vars.status = params.get('status');
@@ -2306,7 +2303,7 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         search
       }
     } = this.props;
-    const data = await IssueList.fetchdata(null, search, this.showError);
+    const data = await IssueList.fetchData(null, search, this.showError);
 
     if (data) {
       this.setState({

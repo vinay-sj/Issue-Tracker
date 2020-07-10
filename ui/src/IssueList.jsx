@@ -13,7 +13,7 @@ import Toast from './Toast.jsx';
 import store from './store.js';
 
 export default class IssueList extends React.Component {
-  static async fetchdata(match, search, showError) {
+  static async fetchData(match, search, showError) {
     const params = new URLSearchParams(search);
     const vars = {};
     if (params.get('status')) vars.status = params.get('status');
@@ -73,7 +73,7 @@ export default class IssueList extends React.Component {
 
   async loadData() {
     const { location: { search } } = this.props;
-    const data = await IssueList.fetchdata(null, search, this.showError);
+    const data = await IssueList.fetchData(null, search, this.showError);
     if (data) {
       this.setState({ issues: data.issueList });
     }
