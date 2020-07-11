@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function IssueDetail({ issue }){
+export default function IssueDetail({ issue }) {
   if (issue) {
     return (
       <div>

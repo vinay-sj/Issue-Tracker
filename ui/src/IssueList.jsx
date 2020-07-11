@@ -52,6 +52,7 @@ export default class IssueList extends React.Component {
     const data = await graphQLFetch(query, vars, showError);
     return data;
   }
+
   constructor() {
     super();
     const issues = store.initialData ? store.initialData.issueList : null;
@@ -156,7 +157,7 @@ export default class IssueList extends React.Component {
 
   render() {
     const { issues } = this.state;
-    if(issues == null) return null;
+    if (issues == null) return null;
     const { selectedIssue } = this.state;
     const { toastVisible, toastType, toastMessage } = this.state;
     return (

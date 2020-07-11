@@ -24,7 +24,7 @@ async function render(req, res) {
   const context = {};
   const element = (
     <StaticRouter location={req.url} context={context}>
-      <Page/>
+      <Page />
     </StaticRouter>
   );
   const body = ReactDOMServer.renderToString(element);

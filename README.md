@@ -6,6 +6,8 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 ## Chapter 12
 
+![ch12](/readme_images/Chapter12.png)
+
 * `Isomorphic` applications are those that use the same codebase on the server as well as the client to do either task: render to the DOM or create HTML.
 * Server rendering fetch data via APIs and construct the DOM on the browser, the entire HTML is constructed on the server and sent to the browser.
 * To have pages from an application be properly indexed by search engines, the server needs to respond with the same HTML that will result after the Ajax call in `componentDidMount()` methods and subsequent re-rendering of the page.
@@ -53,7 +55,22 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 ### Errors and Issues
 
+* In listing 12-2 and 12-3 on page 379, `rules` need to be in quotes `"rules"`.
+* In listing 12-3 on page 379, `always` and `error` should be in double quotes and not single quotes.
+* In listing 12-29 on page 401, the code is wrongly given as:
+```
+if (!process.env.UI_SERVER_API_ENDPOINT) {
+process.env.UI_API_ENDPOINT = process.env.UI_API_ENDPOINT;
+}
+```
+It should have been
+```
+if (!process.env.UI_SERVER_API_ENDPOINT) {
+process.env.UI_SERVER_API_ENDPOINT = process.env.UI_API_ENDPOINT;
+}
+```
 * In listing 12-45 we have to add `parseInt(id, 10)` into the graphQLFetch method.
+* In the section `Data Fetcher with Parameters` I had mistakenly named the function as `fetchdata()` instead of `fetchData()`. This error was causing an API call to fetch the list of issues on refresh.
 
 ## Chapter 11
 

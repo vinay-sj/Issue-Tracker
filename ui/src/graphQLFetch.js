@@ -1,5 +1,6 @@
-const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
 import fetch from 'isomorphic-fetch';
+
+const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
 
 function jsonDateReviver(key, value) {
   if (dateRegex.test(value)) return new Date(value);
