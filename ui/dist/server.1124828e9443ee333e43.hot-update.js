@@ -18,11 +18,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/IssueFilter.jsx");
 /* harmony import */ var _IssueTable_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IssueTable.jsx */ "./src/IssueTable.jsx");
-/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
-/* harmony import */ var _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./IssueDetail.jsx */ "./src/IssueDetail.jsx");
+/* harmony import */ var _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./IssueDetail.jsx */ "./src/IssueDetail.jsx");
+/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
 /* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
 /* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
-/* eslint "react/jsx-no-undef": "off" */
 
 
 
@@ -63,20 +62,20 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       $effortMax: Int
       $hasSelection: Boolean!
       $selectedId: Int!
-      ) {
-      issueList (
+    ) {
+      issueList(
         status: $status
         effortMin: $effortMin
         effortMax: $effortMax
-        ) {
+      ) {
         id title status owner
         created effort due
       }
       issue(id: $selectedId) @include (if : $hasSelection) {
         id description
-       }
+      }
     }`;
-    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__["default"])(query, vars, showError);
+    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__["default"])(query, vars, showError);
     return data;
   }
 
@@ -147,10 +146,10 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
   async closeIssue(index) {
     const query = `mutation issueClose($id: Int!) {
-    issueUpdate(id: $id, changes: { status: Closed }) {
-    id title status owner
-    effort created due description
-    }
+      issueUpdate(id: $id, changes: { status: Closed }) {
+        id title status owner
+        effort created due description
+      }
     }`;
     const {
       issues
@@ -158,7 +157,7 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     const {
       showError
     } = this.props;
-    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__["default"])(query, {
+    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__["default"])(query, {
       id: issues[index].id
     }, showError);
 
@@ -190,13 +189,13 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       history
     } = this.props;
     const {
-      id
-    } = issues[index];
-    const {
       showSuccess,
       showError
     } = this.props;
-    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__["default"])(query, {
+    const {
+      id
+    } = issues[index];
+    const data = await Object(_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__["default"])(query, {
       id
     }, showError);
 
@@ -238,7 +237,7 @@ class IssueList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       issues: issues,
       closeIssue: this.closeIssue,
       deleteIssue: this.deleteIssue
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
       issue: selectedIssue
     }));
   }
@@ -249,82 +248,7 @@ const IssueListWithToast = Object(_withToast_jsx__WEBPACK_IMPORTED_MODULE_7__["d
 IssueListWithToast.fetchData = IssueList.fetchData;
 /* harmony default export */ __webpack_exports__["default"] = (IssueListWithToast);
 
-/***/ }),
-
-/***/ "./src/withToast.jsx":
-/*!***************************!*\
-  !*** ./src/withToast.jsx ***!
-  \***************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return withToast; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Toast_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Toast.jsx */ "./src/Toast.jsx");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-
-
-function withToast(OriginalComponent) {
-  return class ToastWrapper extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        toastVisible: false,
-        toastMessage: '',
-        toastType: 'success'
-      };
-      this.showSuccess = this.showSuccess.bind(this);
-      this.showError = this.showError.bind(this);
-      this.dismissToast = this.dismissToast.bind(this);
-    }
-
-    showSuccess(message) {
-      this.setState({
-        toastVisible: true,
-        toastMessage: message,
-        toastType: 'success'
-      });
-    }
-
-    showError(message) {
-      this.setState({
-        toastVisible: true,
-        toastMessage: message,
-        toastType: 'danger'
-      });
-    }
-
-    dismissToast() {
-      this.setState({
-        toastVisible: false
-      });
-    }
-
-    render() {
-      const {
-        toastType,
-        toastVisible,
-        toastMessage
-      } = this.state;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(OriginalComponent, _extends({
-        showError: this.showError,
-        showSuccess: this.showSuccess,
-        dismissToast: this.dismissToast
-      }, this.props)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Toast_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        bsStyle: toastType,
-        showing: toastVisible,
-        onDismiss: this.dismissToast
-      }, toastMessage));
-    }
-
-  };
-}
-
 /***/ })
 
 };
-//# sourceMappingURL=server.4111b64031a622e7174a.hot-update.js.map
+//# sourceMappingURL=server.1124828e9443ee333e43.hot-update.js.map

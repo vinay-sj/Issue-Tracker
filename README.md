@@ -4,6 +4,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 # Chapter Notes
 
+## Chapter 13
+
+* To reuse the common code across many components we can create a new component that wraps each of the main views. 
+* The pattern of creating a new component class from an existing component class and injecting into it additional functionality is called `Higher Order Component (HOC)`.
 ## Chapter 12
 
 ![ch12](/readme_images/Chapter12.png)
