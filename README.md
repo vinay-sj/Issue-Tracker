@@ -8,6 +8,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 * To reuse the common code across many components we can create a new component that wraps each of the main views. 
 * The pattern of creating a new component class from an existing component class and injecting into it additional functionality is called `Higher Order Component (HOC)`.
+* MongoDB `pipeline` is a series of transforms on the collection before returning the result set. Each stage transforms the documents as they pass through the pipeline. A `match` stage will act like a filter on the list of documents from the previous stage. To transform the document, a `project` stage can be used.
+* The `group` stage produces a summary of documents. The `unwind` stage expands array fields into one document for each array element. For other stages refer [https://docs.mongodb.com/manual/reference/operator/aggregation/](https://docs.mongodb.com/manual/reference/operator/aggregation/)
+* MongoDB provides the collection method `aggregate()` to summarize and perform various other read tasks on the collection using a `pipeline`. The `aggregate()` method takes a single parameter, an array of pipeline stage specifications. Each stage specification is an object with a key indicating the type of the stage and the value holding the parameters for the stage.
 ## Chapter 12
 
 ![ch12](/readme_images/Chapter12.png)
