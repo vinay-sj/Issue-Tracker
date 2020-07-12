@@ -19,6 +19,11 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * Without an explicit sort order, MongoDB does not guarantee any order in the output.
 * MongoDB’s text index, quickly gets to all the documents that contain a certain term. A text index gathers all the terms (words) in all the documents and creates a lookup table that, given a term (word), returns all documents containing that term (word).  This is not a pattern search. Also, common words like “in”, “when,” etc. are not indexed, and searching for these will result in no matches.
 
+### Errors and Issues
+
+* In listing 13-5 on page 436, the line `Lorem ipsum dolor sit amet, ${i}` should use backticks instead of single quotes.
+* In listing 13-24 on page 467, the line `history.push('/edit/${value}');` should use backticks instead of single quotes.
+
 ## Chapter 12
 
 ![ch12](/readme_images/Chapter12.png)
