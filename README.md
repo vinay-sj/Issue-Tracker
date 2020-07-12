@@ -6,6 +6,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 ## Chapter 13
 
+![ch13_1](/readme_images/Chapter13_1.png)
+
+![ch13_2](/readme_images/Chapter13_2.png)
+
 * To reuse the common code across many components we can create a new component that wraps each of the main views. 
 * The pattern of creating a new component class from an existing component class and injecting into it additional functionality is called `Higher Order Component (HOC)`.
 * MongoDB `pipeline` is a series of transforms on the collection before returning the result set. Each stage transforms the documents as they pass through the pipeline. A `match` stage will act like a filter on the list of documents from the previous stage. To transform the document, a `project` stage can be used.
