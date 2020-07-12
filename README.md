@@ -13,6 +13,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * MongoDB provides the collection method `aggregate()` to summarize and perform various other read tasks on the collection using a `pipeline`. The `aggregate()` method takes a single parameter, an array of pipeline stage specifications. Each stage specification is an object with a key indicating the type of the stage and the value holding the parameters for the stage.
 * For pagination, we can use the MongoDB cursor method `skip()` to get the list of documents starting at an offset and the `limit()` cursor method to limit the output to a certain number.
 * Without an explicit sort order, MongoDB does not guarantee any order in the output.
+* MongoDB’s text index, quickly gets to all the documents that contain a certain term. A text index gathers all the terms (words) in all the documents and creates a lookup table that, given a term (word), returns all documents containing that term (word).  This is not a pattern search. Also, common words like “in”, “when,” etc. are not indexed, and searching for these will result in no matches.
 
 ## Chapter 12
 
