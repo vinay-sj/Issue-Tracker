@@ -20,7 +20,7 @@ function PageLink({
   if (page === 0) return React.cloneElement(children, { disabled: true });
   return (
     <LinkContainer
-      isActive={() => page === activePage }
+      isActive={() => page === activePage}
       to={{ search: `?${params.toString()}` }}
     >
       {children}
@@ -172,10 +172,10 @@ class IssueList extends React.Component {
     const { issues } = this.state;
     if (issues == null) return null;
     const { selectedIssue, pages } = this.state;
-    const { location: { search }} = this.props;
+    const { location: { search } } = this.props;
 
     const params = new URLSearchParams(search);
-    let page = parseInt(params.get('page'),10);
+    let page = parseInt(params.get('page'), 10);
     if (Number.isNaN(page)) page = 1;
 
     const startPage = Math.floor((page - 1) / SECTION_SIZE) * SECTION_SIZE + 1;
@@ -184,7 +184,7 @@ class IssueList extends React.Component {
     const nextSection = endPage >= pages ? 0 : startPage + SECTION_SIZE;
 
     const items = [];
-    for (let i = startPage; i <= Math.min(endPage,pages); i+=1) {
+    for (let i = startPage; i <= Math.min(endPage, pages); i += 1) {
       params.set('page', i);
       items.push((
         <PageLink key={i} params={params} activePage={page} page={i}>
