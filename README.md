@@ -7,7 +7,9 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 ## Chapter 14
 
 * In this chapter, we will implement the authentication mechanism. We will use Google Sign-In for Websites which uses the OAuth2 mechanism.
-  
+* The various options for integrating with Google Sign-In are listed in the “Guides” section at [https://developers.google.com/identity/sign-in/web/sign-in](https://developers.google.com/identity/sign-in/web/sign-in).
+* We need to create a console project and a client ID to identify the project and use the origin URL as `http://localhost:8000` as of now.
+* The code for the sign in component is taken from the 'Building a Custom Graphic' section of the guide.
 
 ## Chapter 13
 
