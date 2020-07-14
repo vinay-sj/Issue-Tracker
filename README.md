@@ -4,6 +4,11 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 # Chapter Notes
 
+## Chapter 14
+
+* In this chapter, we will implement the authentication mechanism. We will use Google Sign-In for Websites which uses the OAuth2 mechanism.
+  
+
 ## Chapter 13
 
 ![ch13_1](/readme_images/Chapter13_1.png)
