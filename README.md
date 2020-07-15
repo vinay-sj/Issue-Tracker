@@ -10,6 +10,16 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * The various options for integrating with Google Sign-In are listed in the “Guides” section at [https://developers.google.com/identity/sign-in/web/sign-in](https://developers.google.com/identity/sign-in/web/sign-in).
 * We need to create a console project and a client ID to identify the project and use the origin URL as `http://localhost:8000` as of now.
 * The code for the sign in component is taken from the 'Building a Custom Graphic' section of the guide.
+* The technique to validate a token at the back-end is described in the guide “Authenticate with a Backend Server,” at [https://developers.google.com/identity/sign-in/web/backend-auth](https://developers.google.com/identity/sign-in/web/backend-auth).
+* The client authentication library returns a token on successful authentication, which can be verified at the back-end using Google’s authentication library for Node.js. We send this token from the UI to the back-end for it to be verified.
+* To persist the authentication information we use JSON Web Tokens(JWT). It encodes the session information that needs to be stored in a token.
+* Creating our own token lets us add more variables, for example, a role identifier can be added to the session information and that can be quickly retrieved to apply authorization rules.
+* The token is sent across as a cookiw to avoid cross-site-scripting (XSS). To prevent the cookie from being read programmatically by setting the `HttpOnly` flag on the cookie. The downside is that the amount of information that can be saved is only 4kb.
+* Cookies expose application to Cross-Site Request Forgery (XSRF), and to avoid this we need a XSRF token with every request. Our application is not vulnerable to XSRF as there are no conventional HTML forms, and the GraphQL API accepts only `application/json` POST request. The API calls using GET method is vulnerable to XSRF, but we disable it in our application since we don't use it.
+   
+### Errors and Issues
+
+* In listing 14-3 on page 475 it's said to replace our own client ID in place of `YOUR_CLIENT_ID` in the code `GOOGLE_CLIENT_ID=YOUR_CLIENT_ID.apps.googleusercontent.com`. We should replace the whole client ID and not the `YOUR_CLIENT_ID part.
 
 ## Chapter 13
 
