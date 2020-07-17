@@ -17,6 +17,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * The token is sent across as a cookiw to avoid cross-site-scripting (XSS). To prevent the cookie from being read programmatically by setting the `HttpOnly` flag on the cookie. The downside is that the amount of information that can be saved is only 4kb.
 * Cookies expose application to Cross-Site Request Forgery (XSRF), and to avoid this we need a XSRF token with every request. Our application is not vulnerable to XSRF as there are no conventional HTML forms, and the GraphQL API accepts only `application/json` POST request. The API calls using GET method is vulnerable to XSRF, but we disable it in our application since we don't use it.
 * If we set the `HttpOnly` flag in the cookie, it cannot be programmatically accessible from the front-end code, it can only cleared by the server code.
+* GraphQL library passes a third argument, the context, which can be customized to the application’s requirements. We set the user information as the context and let each resolver check whether the credentials are good enough to serve the request.
 
 ### Errors and Issues
 
