@@ -16,7 +16,8 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * Creating our own token lets us add more variables, for example, a role identifier can be added to the session information and that can be quickly retrieved to apply authorization rules.
 * The token is sent across as a cookiw to avoid cross-site-scripting (XSS). To prevent the cookie from being read programmatically by setting the `HttpOnly` flag on the cookie. The downside is that the amount of information that can be saved is only 4kb.
 * Cookies expose application to Cross-Site Request Forgery (XSRF), and to avoid this we need a XSRF token with every request. Our application is not vulnerable to XSRF as there are no conventional HTML forms, and the GraphQL API accepts only `application/json` POST request. The API calls using GET method is vulnerable to XSRF, but we disable it in our application since we don't use it.
-   
+* If we set the `HttpOnly` flag in the cookie, it cannot be programmatically accessible from the front-end code, it can only cleared by the server code.
+
 ### Errors and Issues
 
 * In listing 14-3 on page 475 it's said to replace our own client ID in place of `YOUR_CLIENT_ID` in the code `GOOGLE_CLIENT_ID=YOUR_CLIENT_ID.apps.googleusercontent.com`. We should replace the whole client ID and not the `YOUR_CLIENT_ID part.
