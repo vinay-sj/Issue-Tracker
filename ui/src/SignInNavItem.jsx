@@ -18,7 +18,7 @@ class SignInNavItem extends React.Component {
     this.signIn = this.signIn.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const clientId = window.ENV.GOOGLE_CLIENT_ID;
     if (!clientId) return;
     window.gapi.load('auth2', () => {
@@ -28,6 +28,18 @@ class SignInNavItem extends React.Component {
         });
       }
     });
+    await this.loadData();
+  }
+
+  async loadData() {
+    const apiEndpoint = window.ENV.UI_AUTH_ENDPOINT;
+    const response = await fetch(`${apiEndpoint}/user`, {
+      method: 'POST',
+    });
+    const body = await response.text();
+    const result = JSON.parse(body);
+    const { signedIn, givenName } = result;
+    this.setState({ user: { signedIn, givenName } });
   }
 
   async signIn() {
@@ -51,7 +63,7 @@ class SignInNavItem extends React.Component {
       const body = await response.text();
       const result = JSON.parse(body);
       const { signedIn, givenName } = result;
-      this.setState( { user: { signedIn, givenName } });
+      this.setState({ user: { signedIn, givenName } });
     } catch (error) {
       showError(`Error signing into the app: ${error}`);
     }
