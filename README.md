@@ -6,6 +6,8 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 ## Chapter 14
 
+![ch14](/readme_images/Chapter14.png)
+
 * In this chapter, we will implement the authentication mechanism. We will use Google Sign-In for Websites which uses the OAuth2 mechanism.
 * The various options for integrating with Google Sign-In are listed in the “Guides” section at [https://developers.google.com/identity/sign-in/web/sign-in](https://developers.google.com/identity/sign-in/web/sign-in).
 * We need to create a console project and a client ID to identify the project and use the origin URL as `http://localhost:8000` as of now.
@@ -24,11 +26,18 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
     * All XHR calls must include the header `credentials: 'include'`.
     * Including credentials from any origin should be disallowed. The CORS middleware should include an origin as a configuration option.
     * The server must explicitly allow sending credentials. It can be done using the CORS configuration option called `credentials`.
-
+* To test whether our application works for real domains we create a domain and two sub-domains, both of which point to the localhost. 
 
 ### Errors and Issues
 
+* The Google Developers Console screen has been updated, and is different from the one shown in the book.
 * In listing 14-3 on page 475 it's said to replace our own client ID in place of `YOUR_CLIENT_ID` in the code `GOOGLE_CLIENT_ID=YOUR_CLIENT_ID.apps.googleusercontent.com`. We should replace the whole client ID and not the `YOUR_CLIENT_ID part.
+* In listing 14-15 on page 490, in order to sign out correctly, the domain should be included in the `clearCookie` response from the server. The code should be:
+```
+ res.clearCookie('jwt', {
+       domain: process.env.COOKIE_DOMAIN,
+   });
+ ```
 
 ## Chapter 13
 
