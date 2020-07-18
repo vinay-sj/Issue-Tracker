@@ -14,10 +14,17 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * The client authentication library returns a token on successful authentication, which can be verified at the back-end using Google’s authentication library for Node.js. We send this token from the UI to the back-end for it to be verified.
 * To persist the authentication information we use JSON Web Tokens(JWT). It encodes the session information that needs to be stored in a token.
 * Creating our own token lets us add more variables, for example, a role identifier can be added to the session information and that can be quickly retrieved to apply authorization rules.
-* The token is sent across as a cookiw to avoid cross-site-scripting (XSS). To prevent the cookie from being read programmatically by setting the `HttpOnly` flag on the cookie. The downside is that the amount of information that can be saved is only 4kb.
+* The token is sent across as a cookie to avoid cross-site-scripting (XSS). To prevent the cookie from being read programmatically by setting the `HttpOnly` flag on the cookie. The downside is that the amount of information that can be saved is only 4kb.
 * Cookies expose application to Cross-Site Request Forgery (XSRF), and to avoid this we need a XSRF token with every request. Our application is not vulnerable to XSRF as there are no conventional HTML forms, and the GraphQL API accepts only `application/json` POST request. The API calls using GET method is vulnerable to XSRF, but we disable it in our application since we don't use it.
 * If we set the `HttpOnly` flag in the cookie, it cannot be programmatically accessible from the front-end code, it can only cleared by the server code.
 * GraphQL library passes a third argument, the context, which can be customized to the application’s requirements. We set the user information as the context and let each resolver check whether the credentials are good enough to serve the request.
+* React Context API pass properties across the component hierarchy without making intermediate components aware of it. The created context exposes a component called `Provider` under it, which needs to be wrapped around any component hierarchy that needs the context.
+* The cors deals with setting up the necessary headers in the preflight requests to the API server. We can use it to enable CORS for the `/auth` set of routes.
+* To let credentials pass to cross-origins, the following must be done:
+    * All XHR calls must include the header `credentials: 'include'`.
+    * Including credentials from any origin should be disallowed. The CORS middleware should include an origin as a configuration option.
+    * The server must explicitly allow sending credentials. It can be done using the CORS configuration option called `credentials`.
+
 
 ### Errors and Issues
 
