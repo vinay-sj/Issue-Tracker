@@ -4,6 +4,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 # Chapter Notes
 
+## Chapter 15
+
+* The simplest way to deploy an app on Heroku is using a Git repository. We need two repositories, one for the API server `tracker-api` and the UI server `tracker-ui`.
+
 ## Chapter 14
 
 ![ch14](/readme_images/Chapter14.png)
