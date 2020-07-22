@@ -2,8 +2,11 @@ require('dotenv').config();
 
 const { MongoClient } = require('mongodb');
 
-const url = process.env.DB_URL || 'mongodb://localhost/issuetracker';
+// const url = process.env.DB_URL || 'mongodb://localhost/issuetracker';
 
+// Atlas URL - replace UUU with user, PPP with password, XXX with hostname
+// const url = 'mongodb+srv://UUU:PPP@cluster0-XXX.mongodb.net/issuetracker?retryWrites=true';
+const url = 'mongodb+srv://IssueTracker:xdh6syciKUB55Ni@issuetracker.wjwik.mongodb.net/issuetracker?retryWrites=true';
 function testWithCallbacks(callback) {
   console.log('\n--- testWithCallbacks ---');
   const client = new MongoClient(url, { useNewUrlParser: true });

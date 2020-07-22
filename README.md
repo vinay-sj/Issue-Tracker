@@ -8,6 +8,10 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 * The simplest way to deploy an app on Heroku is using a Git repository. We need two repositories, one for the API server `tracker-api` and the UI server `tracker-ui`.
 
+### Errors and Issues
+
+* I had named the cluster as `issuetracker` instead of `cluster0` in Atlas, so had to change the DB_URL to `mongodb+srv://IssueTracker:PPP@issuetracker.wjwik.mongodb.net/issuetracker`.
+
 ## Chapter 14
 
 ![ch14](/readme_images/Chapter14.png)
