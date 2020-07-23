@@ -7,11 +7,17 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 ## Chapter 15
 
 * The simplest way to deploy an app on Heroku is using a Git repository. We need two repositories, one for the API server `tracker-api` and the UI server `tracker-ui`.
+* Heroku uses the environment variable `PORT` to let the application know which port the traffic will be received in the container the application is deployed in.
+* By setting the `engines` property in `package.json` we can specify the version of npm and Node.js that has to be used by Heroku.
+* To create and initialize the application on Heroku we need to use the Heroku CLI command `create`. The creation will add a Git repository on Heroku, referred locally as `heroku`. To deploy the application we need to push to this repository.
+* The script `postinstall` is run right after `npm install` finishes. It can be used to run the compilation and link Bootstrap's static CSS and JavaScript files. It takes effect both when we run `npm install` locally as well as after Heroku runs `npm install` after deployment.
+* The script `heroku-postbuild` is specific to Heroku. That is, this script is run only on Heroku deployments, and not when a developer runs npm install on the local computer.
 
 ### Errors and Issues
 
 * I had named the cluster as `issuetracker` instead of `cluster0` in Atlas, so had to change the DB_URL to `mongodb+srv://IssueTracker:PPP@issuetracker.wjwik.mongodb.net/issuetracker`.
-
+* While changing the environment variable from `DB_URL` to `MONGODB_URI`, changes should be made to `db.js`, the `.env` files and the heroku configuration code described in page 519.
+ 
 ## Chapter 14
 
 ![ch14](/readme_images/Chapter14.png)
