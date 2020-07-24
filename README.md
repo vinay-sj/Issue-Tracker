@@ -12,6 +12,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 * To create and initialize the application on Heroku we need to use the Heroku CLI command `create`. The creation will add a Git repository on Heroku, referred locally as `heroku`. To deploy the application we need to push to this repository.
 * The script `postinstall` is run right after `npm install` finishes. It can be used to run the compilation and link Bootstrap's static CSS and JavaScript files. It takes effect both when we run `npm install` locally as well as after Heroku runs `npm install` after deployment.
 * The script `heroku-postbuild` is specific to Heroku. That is, this script is run only on Heroku deployments, and not when a developer runs npm install on the local computer.
+* Using the technique `Name Based Virtual Hosting` we can specify which application the request should land on so that it can be routed to the appropriate application. This is done using the `Host` header in the HTTP request.
 
 ### Errors and Issues
 
