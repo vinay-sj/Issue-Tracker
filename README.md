@@ -6,6 +6,18 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 ## Chapter 15
 
+In this chapter we deploy the application to the public internet. The clickable link to my deployed issue tracker application is:
+
+[https://tracker-ui-vinay-sj.herokuapp.com](https://tracker-ui-vinay-sj.herokuapp.com)
+
+My deployment repositories can be found below:
+
+[https://github.com/vinay-sj/tracker-api](https://github.com/vinay-sj/tracker-api)
+
+[https://github.com/vinay-sj/tracker-ui](https://github.com/vinay-sj/tracker-ui)
+
+![ch15](/readme_images/Chapter15.png)
+
 * The simplest way to deploy an app on Heroku is using a Git repository. We need two repositories, one for the API server `tracker-api` and the UI server `tracker-ui`.
 * Heroku uses the environment variable `PORT` to let the application know which port the traffic will be received in the container the application is deployed in.
 * By setting the `engines` property in `package.json` we can specify the version of npm and Node.js that has to be used by Heroku.
@@ -18,7 +30,7 @@ This file documents my progress through each chapter of Pro MERN Stack (2nd Ed.)
 
 * I had named the cluster as `issuetracker` instead of `cluster0` in Atlas, so had to change the DB_URL to `mongodb+srv://IssueTracker:PPP@issuetracker.wjwik.mongodb.net/issuetracker`.
 * While changing the environment variable from `DB_URL` to `MONGODB_URI`, changes should be made to `db.js`, the `.env` files and the heroku configuration code described in page 519.
- 
+
 ## Chapter 14
 
 ![ch14](/readme_images/Chapter14.png)
